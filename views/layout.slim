@@ -1,0 +1,89 @@
+doctype html
+html.no-js[lang='pt-br' xmlns='http://www.w3.org/1999/xhtml' xmlns:fb='http://www.facebook.com/2008/fbml']
+  head
+    meta[charset='utf-8']
+    meta[http-equiv='X-UA-Compatible' content='IE=edge,chrome=1']
+    title= @title
+    meta[name='description' content='Noite Hoje é um aplicativo para Web, iPhone e Android que organiza as melhores festas e shows da sua região.']
+    meta[name='author' content='Noite Hoje']
+    meta[name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0']
+    link[rel='shortcut icon' href='/favicon.ico']
+    link[rel='profile' href='http://microformats.org/profile/hcalendar']
+    link[rel='apple-touch-icon' href='/apple-touch-icon.png']
+    link[rel='stylesheet' type='text/css' href='/scss/webapp.css']
+    script[src='/js/modernizr-1.7.min.js']
+    - if @event
+      meta[property="og:title" content="#{@event.title}"]
+      meta[property="og:type" content="article"]
+      meta[property="og:image" content="#{@event.image}"]
+      meta[property="og:url" content="#{@event.permalink}"]
+      meta[property="og:site_name" content="Noite Hoje"]
+      meta[property="fb:app_id" content="209234935783609"]
+  body
+    #root== yield
+    #fb-root
+    script[src='http://ajax.googleapis.com/ajax/libs/jquery/1.6.1/jquery.min.js']
+    script[src='http://maps.google.com/maps/api/js?sensor=false']
+    script[src='http://code.google.com/apis/gears/gears_init.js']
+    javascript:
+      !window.jQuery && document.write('<script src="/js/jquery-1.5.2.min.js"><\/script>')
+    - if ENV['RACK_ENV'] != 'production'
+      script[type='text/javascript' src='/js/webapp/compiled/libs.js']
+      script[type='text/javascript' src='/js/webapp/compiled/noitehoje.js']
+    - else
+      script[type='text/javascript' src='/js/webapp/minified/libs.min.js']
+      script[type='text/javascript' src='/js/webapp/minified/noitehoje.min.js']
+    script[src='http://connect.facebook.net/pt_BR/all.js#appId=#{FACEBOOK_APP_ID}&amp;xfbml=1']
+    - if @event
+      javascript:
+        $(function() {
+          NOITEHOJE.webApp.eventDetails.openEventDetailsPanel(#{{@event.to_json}}, true);
+        });
+    - if @map_view
+      javascript:
+        $(function() {
+          $("#map-view").click();
+        });
+    - if @open_about
+      javascript:
+        $(function() {
+          $("#about").click();
+        });
+    javascript:
+      NOITEHOJE.webApp.facebookAppId = "#{FACEBOOK_APP_ID}";
+      $(function() {
+        $.reject({
+          reject:       { msie6: true, msie7: true },
+          display:      ['chrome', 'firefox','safari'],
+          header:       'Navegador desatualizado',
+          paragraph1:   'A versão de seu navegador não oferece suporte às funcionalidades da aplicação Noite Hoje.',
+          paragraph2:   'Para continuar, utilize um dos navegadores abaixo:',
+          imagePath:    '../../images/browsers/',
+          close:        false,
+          closeCookie:  true,
+          browserInfo:  {
+            firefox: {
+              text: 'Firefox',
+              url: 'http://www.mozilla.com/firefox/'
+             },
+            safari: {
+              text: 'Safari',
+              url: 'http://www.apple.com/safari/download/'
+            },
+            chrome: {
+              text: 'Chrome',
+              url: 'http://www.google.com/chrome/'
+            }
+          }
+        });
+      });
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-22061370-1']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+

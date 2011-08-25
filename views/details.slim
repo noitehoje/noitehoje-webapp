@@ -1,0 +1,33 @@
+aside#details.party
+  section.inner
+    ul.details-toolbar
+      li.tweet
+        erb:
+         <a href="http://twitter.com/share" class="twitter-share-button" data-url="noitehoje.com.br" data-text="Noite Hoje!" data-count="horizontal" data-via="noitehoje">Tweet</a>
+         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
+      li.facebook
+        erb:
+          <fb:like href="" colorscheme="dark" send="false" width="270" show_faces="false" font="arial"></fb:like>
+      li.close
+        a.close-panel[href='#'] × fechar
+    .event-details-photo
+      a.photo-link[href='/images/webapp/party-placeholder.png']
+        img.photo[src='/images/webapp/party-placeholder.png']
+    .event-details-info   
+      h2
+        span.event-type-icon.party
+        span.event-title
+      h3
+        span.date
+      .event-information
+        span.venue-name
+        p.address
+        p.phone
+        p.site
+          a[href='#' target='_blank'] site
+        p.location        
+      ul.tabs-control
+        li.show-event-map.current Mapa
+        li.show-event-description Mais informações
+      .details-map        
+      p.description

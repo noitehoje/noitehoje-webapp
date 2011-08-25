@@ -1,0 +1,24 @@
+.app-share
+  a.facebook[href='http://facebook.com/noitehoje' rel='nofollow' target='_blank'] Facebook
+  a.twitter[href="http://twitter.com/?status=#{URI.escape('Quer saber qual é a Noite Hoje? » http://noitehoje.com.br #NoiteHoje')}" rel='nofollow' target='_blank'] Twitter
+/
+  .about-link
+    | © 2011 ·
+    a#about[href='#'] Sobre o Noite Hoje
+.view-scope
+  a.first.selected[href='#' data-view-scope='any']
+    b Todos
+  a.middle[href='#' data-view-scope='party']
+    b Festas
+  a.last[href='#' data-view-scope='show']
+    b Shows
+.view-type
+  a#small-list.current[href='#' data-view-type='small-list']
+    span
+    b Lista Pequena
+  a#large-list[href='#' data-view-type='large-list']
+    span
+    b Lista Grande
+  a#map-view[href='#' data-view-type='map-view']
+    span
+    b Mapa

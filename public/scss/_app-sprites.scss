@@ -1,0 +1,21 @@
+#logo,
+.social .icon,
+.view-type a span,
+#footer .app-share a,
+#details .social a,
+#services_list a,
+.geo-icon,
+.events .show-placeholder,
+.events .party-placeholder
+{
+  background-image:url(/images/webapp/sprite.png);
+  background-attachment:scroll;
+  background-repeat:no-repeat;
+}
+#header,
+#footer
+{
+  background-image:url(/images/webapp/sprite-x.png);
+  background-attachment:scroll;
+  background-repeat:repeat-x;
+}

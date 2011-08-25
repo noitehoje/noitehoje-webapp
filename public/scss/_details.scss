@@ -1,0 +1,166 @@
+$nh:#E513ED;
+#details {
+  @include box-shadow(rgba(0,0,0,.5),0,0,10px,inset);
+  background:#000 url(/images/webapp/background.png) no-repeat scroll left top;
+  position:fixed;
+  top:45px;
+  right:-599px;
+  width:600px;
+  border-left:1px solid #28292f;
+  color:white;
+  overflow:auto;
+  display:none;
+  z-index: 3;         // make sure it shows on top of the map overlay
+  // display:block;   // for style & debug
+  // right:0;         // for style & debug
+  section {
+    padding:20px;
+    position:relative;
+  }
+  ul.details-toolbar {
+    @include background-image(linear-gradient(#393939,#191919));
+    margin:-20px -20px 0;
+    padding:0;
+    list-style:none;
+    height:36px;
+    line-height:22px;
+    border-bottom:1px solid #000;
+    @include single-box-shadow(#191919,1px,0,0);
+    li {
+      float:left;
+      padding-top:6px;
+      a {
+        display:block;
+        float:left;
+        padding:3px 6px;
+        color:white;
+        font-size:14px;
+        font-weight:900;
+        text-shadow:#000 1px 1px 0;
+      }
+      &.close {
+        float:right;
+        padding-top:2px;
+      }
+      &.tweet {
+        margin-left:10px;
+      }
+      &.facebook {
+        padding-top:4px;
+      }
+      a.close-panel {
+        font-size:.85em;
+        font-weight:900;
+        display:block;
+        padding:0 6px;
+        margin:5px;
+        @include border-radius(1em);
+        @include single-box-shadow(#444, 0, 1px, 0);
+        background:#000;
+        -webkit-transition:background .15s linear;
+        &:hover {
+          background:#b22;
+        }
+        &:active {
+          background:#900;
+        }
+      }
+    }
+  }
+  h2 {
+    margin-top:20px;
+    font-size:20px;
+    font-weight:900;
+    text-shadow:#000 1px 1px 0;
+  }
+  h3 {
+    font-weight:900;
+    text-shadow:#000 1px 1px 0;
+  }
+  .event-details-photo {
+    height:200px;
+    float:right;
+  }
+  .photo {
+    margin-top:20px;
+    float:right;
+    max-width: 170px;
+    max-height:170px;
+    margin-left:10px;
+  }
+  .details-map {
+    height:190px;
+    clear:both;
+    border:1px solid darken($nh,25%);
+  }
+  p.description {
+    clear:both;
+    padding:10px;
+    border:1px solid darken($nh,25%);
+    background:rgba(0,0,0,.4);
+  }
+  .venue-name {
+    font-size:18px;
+    color:$nh;
+    font-weight:900;
+    margin:.5em 0 1em;
+    display:block;
+  }
+  .address {}
+  .phone {}
+  .site {
+    a {
+      word-break: break-all;
+    }
+  }
+  .summary {}
+  .location {}
+  time {
+    span.date,
+    span.hora {
+      font-size:18px;
+    }
+  }
+  .tabs-control {
+    list-style:none;
+    clear:both;
+    margin:10px 0 0;
+    overflow:hidden;
+    li {
+      @include border-radius(6px 6px 0 0);
+      float:left;
+      display:block;
+      padding:5px 12px;
+      margin-right:4px;
+      cursor:pointer;
+      background:#000;
+      border-bottom:0 none;
+      font-weight:900;
+      text-shadow:#000 1px 1px 0;
+      &.current {
+        background:darken($nh,25%);
+      }
+    }
+  }
+  p.description {
+    display:none;
+  }
+  p.legal-disclaimer {
+    background:darken($nh,70%);
+    color:white;
+    border:1px solid darken($nh,25%);
+    border-top:0 none;
+    font-size:12px;
+    padding:10px;
+  }
+}
+.msie #details {
+  ul.details-toolbar {
+    //@include linear-gradient(color-stops(#393939,#191919));
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393939', endColorstr='#191919',GradientType=0 );   
+  }
+  p.description {
+    background:#000;
+    margin-bottom:20px;
+  }
+}

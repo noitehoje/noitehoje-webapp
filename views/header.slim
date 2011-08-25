@@ -1,0 +1,31 @@
+h1#logo[title="Noite Hoje · O melhor guia de Festas e Shows da sua cidade!"] Noite Hoje
+.view-dropdown.dd-city
+  .dropdown-wrapper
+    span.geo-icon
+    span.selected-item Todas as cidades
+    span.arrow
+  ul.change-dropdown
+    li
+      a#all[href='#'] Todas as cidades
+    - @cities.each_with_index do |c, i|
+      li[class="#{i == (@cities.size - 1) ? 'last' : ''}"]
+        a[id="#{c[:parameter]}" href='#']= c[:name]
+- unless user_signed_in?
+  .login
+    a#user-login[href="#" data-location='/signin'] Entrar
+    .login-dropdown
+      .arrow
+      .arrow-border
+      ul#services_list
+        li.facebook
+          a[href='/auth/facebook' title="Entrar com Facebook"] Entrar com Facebook
+        li.twitter
+          a[href='/auth/twitter' title="Entrar com Twitter"] Entrar com Twitter
+        li.foursquare
+          a[href='/auth/foursquare' title="Entrar com Foursquare"] Entrar com Foursquare
+- else
+  a#user-account.login[href='/services']= current_user.name
+  .user-panel
+    img[src="#{current_user_avatar}" class='avatar']
+.search-box
+  input#search[type='search' placeholder='Buscar']

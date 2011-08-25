@@ -1,0 +1,21 @@
+@import "compass/css3";
+
+a.button {
+  @include background-image(linear-gradient(#595959,#191919));
+  @include border-radius(3px);
+  @include box-shadow(rgba(255,255,255,.2),0,1px,0,inset);
+  padding:.5em 1em;
+  text-decoration:none;
+  font-size:14px;
+  font-weight:900;
+  line-height:21px;
+  border:1px solid #393939;
+  color:#FFF;
+  text-shadow:#000 0 -1px 0;
+  &:hover {
+    @include background-image(linear-gradient(#e513ed,#913ba7));
+  }
+  &:active {
+    @include background-image(linear-gradient(#913ba7,#e513ed));
+  }
+}

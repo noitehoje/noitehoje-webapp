@@ -1,0 +1,29 @@
+section#listings.small-list
+  ul.events
+    - @events.each do |s|
+      li
+        a.vevent[id=s["_id"] href="/event/#{s['_id']}/#{s['slug']}" data-event-type=s["evt_type"]]
+          .photo-wrapper
+            - if s["flyer"].present?
+              img.photo[src=s["flyer"]]
+            - elsif s["venue"]["image"].present?
+              img.photo[src=s["venue"]["image"]]
+            - else
+              div[class="#{s['evt_type']}-placeholder"]
+          .event-info
+            h3.event-title.summary[id="event-id-#{s['_id']}"] #{s["title"]}
+            - if s["start_date"].present?
+              time.date.rdate.dtstart[datetime=s["start_date"]] #{s["relative_date"]}
+          .venue-info
+            - if s["venue"]["name"].present?
+              h3.venue #{s["venue"]["name"]}
+            - if s["venue"]["location"] && s["venue"]["location"]["city"].present?
+              span.location #{s["venue"]["location"]["city"].titleize.to_s}
+          img.event_loader[src='/images/webapp/loader_2.gif']
+/ Lista de eventos implementada com microformats.org » hCalendar
+/ Falta inserir:
+/   Duas classes que definem a duração do evento
+/     .dtstart começo do evento
+/     .dtend fim do evento
+/   .geo latitude e longitude
+/   .status confirmado/aguardando/cancelado

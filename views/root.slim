@@ -1,0 +1,15 @@
+header#header
+  .wrapper
+    == slim :header
+#main
+  .wrapper
+    == slim :list
+== slim :details
+footer#footer
+  .wrapper
+    == slim :footer
+#modal-window
+  .content
+    == slim :about
+  a.close-modal[href='#'] × fechar
+== slim :map
