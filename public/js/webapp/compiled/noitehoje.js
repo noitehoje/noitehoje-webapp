@@ -9,7 +9,14 @@
   };
   NOITEHOJE.webApp.googleMaps = (function() {
     return {
-      PORTO_ALEGRE: new google.maps.LatLng(-30.027704, -51.228735),
+      CITIES_LOCATIONS: {
+        "porto-alegre": new google.maps.LatLng(-30.027704, -51.228735),
+        "curitiba": new google.maps.LatLng(-25.428356, -49.273251),
+        "rio-de-janeiro": new google.maps.LatLng(-22.903539, -43.209587),
+        "sao-paulo": new google.maps.LatLng(-23.548943, -46.638818),
+        "belo-horizonte": new google.maps.LatLng(-19.919068, -43.938575),
+        "florianopolis": new google.maps.LatLng(-27.596904, -48.549454)
+      },
       showMarker: {
         image: new google.maps.MarkerImage('/images/webapp/show-map-icon.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
         shadow: new google.maps.MarkerImage('/images/webapp/show-map-icon-shadow.png', new google.maps.Size(76, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
@@ -53,10 +60,10 @@
         NOITEHOJE.webApp.location.updateLocationWithScope('map');
         NOITEHOJE.webApp.eventDetails.closeDetailsPanel();
         if (!NOITEHOJE.webApp.googleMaps.mapLoaded) {
-          return $.getJSON("" + location.protocol + "//" + location.host + "/api/v1/" + NOITEHOJE.webApp.apiKey + "/getlocations").success(function(e) {
+          return $.getJSON("" + location.protocol + "//" + location.host + "/getlocations").success(function(e) {
             return NOITEHOJE.webApp.googleMaps.setupMap({
               markers: e,
-              mapCenter: NOITEHOJE.webApp.googleMaps.PORTO_ALEGRE,
+              mapCenter: NOITEHOJE.webApp.googleMaps.CITIES_LOCATIONS["porto-alegre"],
               targetElement: '#map_canvas',
               markerClickCallback: function(evt) {
                 return NOITEHOJE.webApp.eventDetails.getEventDetails(evt.id).success(function(data) {

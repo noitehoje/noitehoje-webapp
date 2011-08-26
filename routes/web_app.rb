@@ -14,6 +14,12 @@ module NoiteHoje
       open(URI.encode("#{base_url}api/v1/#{App.config.api_keys.first}/getevent/#{params[:id]}")).read
     end
 
+    get '/getlocations' do
+      no_mobile!
+      content_type 'application/json', :charset => 'utf-8'
+      open(URI.encode("#{base_url}api/v1/#{App.config.api_keys.first}/getlocations")).read
+    end
+
     get "/event/:id/:slug" do
       no_mobile!
       get_event params[:id]

@@ -1,5 +1,11 @@
 NOITEHOJE.webApp.googleMaps = (() ->
-  PORTO_ALEGRE: new google.maps.LatLng(-30.027704, -51.228735)
+  CITIES_LOCATIONS:
+    "porto-alegre": new google.maps.LatLng(-30.027704, -51.228735)
+    "curitiba": new google.maps.LatLng(-25.428356,-49.273251)
+    "rio-de-janeiro": new google.maps.LatLng(-22.903539,-43.209587)
+    "sao-paulo": new google.maps.LatLng(-23.548943,-46.638818)
+    "belo-horizonte": new google.maps.LatLng(-19.919068,-43.938575)
+    "florianopolis": new google.maps.LatLng(-27.596904,-48.549454)
   showMarker:
     image: new google.maps.MarkerImage(
       '/images/webapp/show-map-icon.png',
@@ -72,10 +78,10 @@ NOITEHOJE.webApp.googleMaps = (() ->
     NOITEHOJE.webApp.location.updateLocationWithScope 'map' # update url
     NOITEHOJE.webApp.eventDetails.closeDetailsPanel() # if open, close the event details panel
     unless NOITEHOJE.webApp.googleMaps.mapLoaded
-      $.getJSON("#{location.protocol}//#{location.host}/api/v1/#{NOITEHOJE.webApp.apiKey}/getlocations")
+      $.getJSON("#{location.protocol}//#{location.host}/getlocations")
         .success((e) -> NOITEHOJE.webApp.googleMaps.setupMap
           markers: e
-          mapCenter: NOITEHOJE.webApp.googleMaps.PORTO_ALEGRE
+          mapCenter: NOITEHOJE.webApp.googleMaps.CITIES_LOCATIONS["porto-alegre"]
           targetElement: '#map_canvas'
           markerClickCallback: (evt) ->
             NOITEHOJE.webApp.eventDetails
