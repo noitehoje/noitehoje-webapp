@@ -354,7 +354,7 @@
         return setTimeout("$('#details').hide()", 200);
       },
       getEventDetails: function(eventId) {
-        return $.getJSON("" + location.protocol + "//" + location.host + "/api/v1/" + NOITEHOJE.webApp.apiKey + "/getevent/" + eventId);
+        return $.getJSON("" + location.protocol + "//" + location.host + "/geteventjson/" + eventId);
       }
     };
   })();
@@ -433,7 +433,6 @@
       $('.view-scope a').removeClass('selected');
       $(this).addClass('selected');
       view_scope = $(this).data('view-scope');
-      console.warn(view_scope);
       friendlyType = 'Eventos';
       if (view_scope === 'any') {
         $('.vevent').show();

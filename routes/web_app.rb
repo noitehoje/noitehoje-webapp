@@ -8,13 +8,15 @@ module NoiteHoje
     use Rack::MobileDetect
     use HoptoadNotifier::Rack if ENV['RACK_ENV'] != 'development'
 
+    get '/geteventjson/:id' do
+      no_mobile!
+      content_type 'application/json', :charset => 'utf-8'
+      open(URI.encode("#{base_url}api/v1/#{App.config.api_keys.first}/getevent/#{params[:id]}")).read
+    end
+
     get "/event/:id/:slug" do
       no_mobile!
-      @event = Event.with_id_and_slug(params[:id], params[:slug]).first
-      city = @event.venue.location.city.name.presence if @event.present?
-      @events = Event.upcoming.at_city(city) if city.present?
-      @title = NoiteHoje::WebApp.get_title city.presence, @event.evt_type.to_s, @event
-      @cities = App.config.supported_cities.sort_by {|c| c.name }
+      get_event params[:id]
       slim :root
     end
 
@@ -46,23 +48,34 @@ module NoiteHoje
 
     get "/" do
       no_mobile!
-      # facebook_connect!
       set_up_events nil, nil
       slim :root
     end
 
     def set_up_events city, type
-      if ENV["RACK_ENV"] == "development"
-        base_url = "http://localhost:3456/"
-      else
-        base_url = "http://api.noitehoje.com.br/"
-      end
-
-      url = "#{base_url}api/v1/#{App.config.api_keys.first}/getallevents"
-      json = JSON.parse(open(URI.encode(url)).read)
+      json = get_json "#{base_url}api/v1/#{App.config.api_keys.first}/getallevents"
       @events = json["events"]
       @cities = App.config.supported_cities.sort_by {|c| c[:name] }
       @title = NoiteHoje::WebApp.get_title city, type
+    end
+
+    def get_event event_id
+      json = get_json "#{base_url}api/v1/#{App.config.api_keys.first}/getallevents"
+      @events = json["events"]
+
+      json = get_json "#{base_url}api/v1/#{App.config.api_keys.first}/getevent/#{event_id}"
+      @event = json
+
+      @cities = App.config.supported_cities.sort_by {|c| c[:name] }
+      @title = NoiteHoje::WebApp.get_title @event["venue"]["location"]["city"], @event["evt_type"]
+    end
+
+    def base_url
+      ENV["RACK_ENV"] == "development" ? "http://localhost:3456/" : "http://api.noitehoje.com.br/"
+    end
+
+    def get_json url
+      JSON.parse(open(URI.encode(url)).read)
     end
 
     def self.get_title city = nil, type = nil, event = nil
@@ -77,10 +90,7 @@ module NoiteHoje
           title << "Festas e Shows"
         end
 
-        if city.present?
-          the_city = City.by_parameter(city).first
-          title << " em #{the_city}" if the_city
-        end
+        title << " em #{city}" if city.present?
       end
 
       title << " · Noite Hoje"

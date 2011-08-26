@@ -67,7 +67,7 @@ NOITEHOJE.webApp.eventDetails = (() ->
     setTimeout "$('#details').hide()", 200
 
   getEventDetails: (eventId) ->
-    $.getJSON "#{location.protocol}//#{location.host}/api/v1/#{NOITEHOJE.webApp.apiKey}/getevent/#{eventId}"
+    $.getJSON "#{location.protocol}//#{location.host}/geteventjson/#{eventId}"
 )()
 
 $ () ->

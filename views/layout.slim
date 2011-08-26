@@ -13,10 +13,10 @@ html.no-js[lang='pt-br' xmlns='http://www.w3.org/1999/xhtml' xmlns:fb='http://ww
     link[rel='stylesheet' type='text/css' href='/scss/webapp.css']
     script[src='/js/modernizr-1.7.min.js']
     - if @event
-      meta[property="og:title" content="#{@event.title}"]
+      meta[property="og:title" content="#{@event['title']}"]
       meta[property="og:type" content="article"]
-      meta[property="og:image" content="#{@event.image}"]
-      meta[property="og:url" content="#{@event.permalink}"]
+      meta[property="og:image" content="#{@event['image']}"]
+      meta[property="og:url" content="#{@event['permalink']}"]
       meta[property="og:site_name" content="Noite Hoje"]
       meta[property="fb:app_id" content="209234935783609"]
   body
@@ -51,6 +51,7 @@ html.no-js[lang='pt-br' xmlns='http://www.w3.org/1999/xhtml' xmlns:fb='http://ww
         });
     javascript:
       NOITEHOJE.webApp.facebookAppId = "#{FACEBOOK_APP_ID}";
+      NOITEHOJE.webApp.environment = "#{ENV['RACK_ENV']}"
       $(function() {
         $.reject({
           reject:       { msie6: true, msie7: true },

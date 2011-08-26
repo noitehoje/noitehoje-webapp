@@ -34,37 +34,6 @@ module Sinatra
       def user_signed_in?
         return 1 if current_user
       end
-
-      def facebook_connect!
-        puts "cookies: #{request.cookies}"
-        fb_cookie = request.cookies["fbs_#{FACEBOOK_APP_ID}"]
-        return unless fb_cookie
-
-        fb_cookie = fb_cookie[1..-1].chop # remove extra quotes
-
-        fb_data = CGI.parse fb_cookie
-        uid = fb_data["uid"].first
-        token = URI.escape fb_data["access_token"].first
-        result = User.criteria.where(:facebook_id => uid)
-
-        if result.any?
-          # Returning user. Just sign in back
-          @user = result.first if result.any?
-          return @user
-        end
-
-        # New user. Authenticate him.
-        graph_url = "https://graph.facebook.com/#{uid}?access_token=#{token}"
-        json = Net::HTTP.get_json graph_url
-
-        new_user = User.new(
-          name: json["name"],
-          email: json["email"],
-          facebook_id: json["id"])
-
-        puts "Failed to create user with id #{json["id"]}" unless new_user.save
-        @user = new_user
-      end
     end
   end
 
