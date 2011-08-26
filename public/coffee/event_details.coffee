@@ -41,6 +41,7 @@ NOITEHOJE.webApp.eventDetails = (() ->
     details.find('a.photo-link')
       .attr('href', p.flyer or p.venue.image or '/images/webapp/party-placeholder.png')
       .data('title', p.title)
+    details.find('.source-data').text p.source
 
     # make sure we start displaying the map
     $('.show-event-map').click()

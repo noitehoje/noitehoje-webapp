@@ -8,6 +8,7 @@
 @import "pretty_photo";
 @include html5-boilerplate;
 $legacy-support-for-ie: true;
+$nh:#E513ED;
 .hide {
   display:none;
 }
@@ -27,7 +28,16 @@ a:link,
 a:visited {
   color:#e513ed;
   text-decoration:none;
+  -webkit-transition:color .2s ease-in;
+  -moz-transition:color .2s ease-in;
+  -o-transition:color .2s ease-in;
+  -ms-transition:color .2s ease-in;
+  transition:color .2s ease-in;
 }
+a:hover {
+  color:lighten($nh,10%);
+}
+
 #logo {
   @include bp(0,0);
   display:block;

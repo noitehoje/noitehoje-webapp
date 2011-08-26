@@ -11,6 +11,9 @@ $nh:#E513ED;
   overflow:auto;
   display:none;
   z-index: 3;         // make sure it shows on top of the map overlay
+  text-shadow: #000 1px 1px 0;
+  font-size:14px;
+  line-height:21px;
   // display:block;   // for style & debug
   // right:0;         // for style & debug
   section {
@@ -100,21 +103,30 @@ $nh:#E513ED;
     background:rgba(0,0,0,.4);
   }
   .venue-name {
-    font-size:18px;
-    color:$nh;
+    @include border-radius(3px);
+    @include background-image(linear-gradient(darken($nh,25%),darken($nh,30%)));
+    @include box-shadow(rgba(255,255,255,.3) 0 1px 0 inset);
+    border:1px solid darken($nh,30%);
+    padding:3px 8px;
     font-weight:900;
+    font-size:18px;
     margin:.5em 0 1em;
     display:block;
+    float:left;
   }
-  .address {}
-  .phone {}
+  .address {
+    clear:left;
+  }
+  .phone {
+    clear:left;
+  }
   .site {
+    clear:left;
     a {
       word-break: break-all;
     }
   }
-  .summary {}
-  .location {}
+  .summary {} .location {}
   time {
     span.date,
     span.hora {
@@ -128,9 +140,11 @@ $nh:#E513ED;
     overflow:hidden;
     li {
       @include border-radius(6px 6px 0 0);
+      @include box-shadow(rgba(255,255,255,.3) 0 1px 0 inset);
+      border:1px solid black;
       float:left;
       display:block;
-      padding:5px 12px;
+      padding:8px 18px;
       margin-right:4px;
       cursor:pointer;
       background:#000;
@@ -138,6 +152,7 @@ $nh:#E513ED;
       font-weight:900;
       text-shadow:#000 1px 1px 0;
       &.current {
+        border:1px solid darken($nh,25%);
         background:darken($nh,25%);
       }
     }
@@ -145,13 +160,21 @@ $nh:#E513ED;
   p.description {
     display:none;
   }
-  p.legal-disclaimer {
-    background:darken($nh,70%);
-    color:white;
-    border:1px solid darken($nh,25%);
-    border-top:0 none;
-    font-size:12px;
-    padding:10px;
+  p.source {
+    margin-top:10px;
+    text-align:right;
+    .source-data {
+      margin-left:3px;
+      font-weight:bold;
+    }
+  }
+  p.feedback {
+    margin-top:10px;
+    text-align:right;
+    a {
+      margin-left:4px;
+      font-weight:900;
+    }
   }
 }
 .msie #details {

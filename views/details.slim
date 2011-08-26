@@ -4,7 +4,7 @@ aside#details.party
       li.tweet
         erb:
          <a href="http://twitter.com/share" class="twitter-share-button" data-url="noitehoje.com.br" data-text="Noite Hoje!" data-count="horizontal" data-via="noitehoje">Tweet</a>
-         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script> 
+         <script type="text/javascript" src="http://platform.twitter.com/widgets.js"></script>
       li.facebook
         erb:
           <fb:like href="" colorscheme="dark" send="false" width="270" show_faces="false" font="arial"></fb:like>
@@ -13,7 +13,7 @@ aside#details.party
     .event-details-photo
       a.photo-link[href='/images/webapp/party-placeholder.png']
         img.photo[src='/images/webapp/party-placeholder.png']
-    .event-details-info   
+    .event-details-info
       h2
         span.event-type-icon.party
         span.event-title
@@ -25,9 +25,15 @@ aside#details.party
         p.phone
         p.site
           a[href='#' target='_blank'] site
-        p.location        
+        p.location
       ul.tabs-control
         li.show-event-map.current Mapa
         li.show-event-description Mais informações
-      .details-map        
+      .details-map
       p.description
+    p.source
+      | Fonte:
+      span.source-data
+    p.feedback
+      | Para sugestões, dúvidas, reclamações ou correções entre em contato pelo
+      a[href='mailto:feedback@noitehoje.com.br' title='feedback@noitehoje.com.br'] feedback@noitehoje.com.br
