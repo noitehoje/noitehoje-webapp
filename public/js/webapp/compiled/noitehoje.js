@@ -82,7 +82,9 @@
       unselectCurrentMarker: function() {
         var currMarker;
         currMarker = NOITEHOJE.webApp.googleMaps.selectedMarker;
-        if (currMarker) currMarker.setIcon(currMarker.markerType.image);
+        if (currMarker) {
+          currMarker.setIcon(currMarker.markerType.image);
+        }
         return NOITEHOJE.webApp.googleMaps.selectedMarker = null;
       },
       createMarkers: function(map, markers, clickCallback) {
@@ -106,7 +108,9 @@
               NOITEHOJE.webApp.googleMaps.unselectCurrentMarker();
               marker.setIcon(markerType.selected);
               NOITEHOJE.webApp.googleMaps.selectedMarker = marker;
-              if (clickCallback) return clickCallback(e);
+              if (clickCallback) {
+                return clickCallback(e);
+              }
             });
           })(event));
         }
@@ -134,13 +138,17 @@
         return document.title = newTitle;
       },
       updateLocationWithScope: function(type) {
-        if (type === 'any') type = '';
+        if (type === 'any') {
+          type = '';
+        }
         return History.pushState(null, null, this.basePath + type);
       },
       updateLocationForEventDetails: function(newPath) {
         var oldPath;
         if (newPath) {
-          if (!this.listingPath) this.listingPath = location.pathname;
+          if (!this.listingPath) {
+            this.listingPath = location.pathname;
+          }
           return History.pushState(null, null, newPath);
         } else {
           oldPath = this.listingPath ? this.listingPath : this.basePath;
@@ -160,13 +168,17 @@
         var events;
         events = this.allEvents;
         events.show();
-        if (filter === '') return;
+        if (filter === '') {
+          return;
+        }
         return events.each(function() {
           var regex, searchText, thisElem;
           regex = new RegExp(filter, 'gi');
           thisElem = $(this);
           searchText = "" + (thisElem.find('h2').text()) + " " + (thisElem.find('h3').text());
-          if (searchText.match(regex) === null) return thisElem.hide();
+          if (searchText.match(regex) === null) {
+            return thisElem.hide();
+          }
         });
       },
       clearFilter: function() {
@@ -275,7 +287,9 @@
         var d, date_time_text;
         d = new Date(Date.parse(event.start_date));
         date_time_text = "" + this.WEEKDAYS[d.getDay()] + ", " + (d.getDate()) + " de " + this.MONTHS[d.getMonth()];
-        if (event.start_time) date_time_text += ", " + event.start_time;
+        if (event.start_time) {
+          date_time_text += ", " + event.start_time;
+        }
         return date_time_text;
       },
       getTwitterIframeSrc: function(e) {
@@ -363,7 +377,9 @@
       var elem, img_src;
       elem = $(this);
       img_src = elem.find('img').attr('src');
-      if (img_src === '/images/webapp/party-placeholder.png') return false;
+      if (img_src === '/images/webapp/party-placeholder.png') {
+        return false;
+      }
       return $.prettyPhoto.open(img_src, elem.data('title'), '');
     });
     $('#details').attr('data-opened', false);
@@ -414,7 +430,9 @@
       });
     };
     FB.Event.subscribe('auth.login', function(response) {});
-    if ($.browser.msie) $('body').addClass('msie');
+    if ($.browser.msie) {
+      $('body').addClass('msie');
+    }
     resize();
     $(window).bind('resize', resize);
     $('.view-scope a').click(function(e) {
