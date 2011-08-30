@@ -18,18 +18,18 @@
         "florianopolis": new google.maps.LatLng(-27.596904, -48.549454)
       },
       showMarker: {
-        image: new google.maps.MarkerImage('/images/webapp/show-map-icon.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
-        shadow: new google.maps.MarkerImage('/images/webapp/show-map-icon-shadow.png', new google.maps.Size(76, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
-        selected: new google.maps.MarkerImage('/images/webapp/show-map-icon-selected.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
+        image: new google.maps.MarkerImage('/images/app/show-map-icon.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
+        shadow: new google.maps.MarkerImage('/images/app/show-map-icon-shadow.png', new google.maps.Size(76, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
+        selected: new google.maps.MarkerImage('/images/app/show-map-icon-selected.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
         shape: {
           coord: [43, 0, 44, 1, 44, 2, 44, 3, 44, 4, 44, 5, 44, 6, 44, 7, 44, 8, 44, 9, 44, 10, 44, 11, 44, 12, 44, 13, 44, 14, 44, 15, 44, 16, 44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22, 44, 23, 44, 24, 44, 25, 44, 26, 44, 27, 44, 28, 44, 29, 44, 30, 44, 31, 44, 32, 44, 33, 44, 34, 44, 35, 44, 36, 44, 37, 44, 38, 44, 39, 44, 40, 43, 41, 29, 42, 28, 43, 27, 44, 26, 45, 25, 46, 24, 47, 23, 47, 22, 46, 21, 45, 20, 44, 19, 43, 18, 42, 4, 41, 3, 40, 3, 39, 3, 38, 3, 37, 3, 36, 3, 35, 3, 34, 3, 33, 3, 32, 3, 31, 3, 30, 3, 29, 3, 28, 3, 27, 3, 26, 3, 25, 3, 24, 3, 23, 3, 22, 3, 21, 3, 20, 3, 19, 3, 18, 3, 17, 3, 16, 3, 15, 3, 14, 3, 13, 3, 12, 3, 11, 3, 10, 3, 9, 3, 8, 3, 7, 3, 6, 3, 5, 2, 4, 2, 3, 3, 2, 3, 1, 4, 0, 43, 0],
           type: 'poly'
         }
       },
       partyMarker: {
-        image: new google.maps.MarkerImage('/images/webapp/party-map-icon.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
-        shadow: new google.maps.MarkerImage('/images/webapp/party-map-icon-shadow.png', new google.maps.Size(76, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
-        selected: new google.maps.MarkerImage('/images/webapp/party-map-icon-selected.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
+        image: new google.maps.MarkerImage('/images/app/party-map-icon.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
+        shadow: new google.maps.MarkerImage('/images/app/party-map-icon-shadow.png', new google.maps.Size(76, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
+        selected: new google.maps.MarkerImage('/images/app/party-map-icon-selected.png', new google.maps.Size(48, 48), new google.maps.Point(0, 0), new google.maps.Point(24, 48)),
         shape: {
           coord: [43, 0, 44, 1, 44, 2, 44, 3, 44, 4, 44, 5, 44, 6, 44, 7, 44, 8, 44, 9, 44, 10, 44, 11, 44, 12, 44, 13, 44, 14, 44, 15, 44, 16, 44, 17, 44, 18, 44, 19, 44, 20, 44, 21, 44, 22, 44, 23, 44, 24, 44, 25, 44, 26, 44, 27, 44, 28, 44, 29, 44, 30, 44, 31, 44, 32, 44, 33, 44, 34, 44, 35, 44, 36, 44, 37, 44, 38, 44, 39, 44, 40, 43, 41, 29, 42, 28, 43, 27, 44, 26, 45, 25, 46, 24, 47, 23, 47, 22, 46, 21, 45, 20, 44, 19, 43, 18, 42, 4, 41, 3, 40, 3, 39, 3, 38, 3, 37, 3, 36, 3, 35, 3, 34, 3, 33, 3, 32, 3, 31, 3, 30, 3, 29, 3, 28, 3, 27, 3, 26, 3, 25, 3, 24, 3, 23, 3, 22, 3, 21, 3, 20, 3, 19, 3, 18, 3, 17, 3, 16, 3, 15, 3, 14, 3, 13, 3, 12, 3, 11, 3, 10, 3, 9, 3, 8, 3, 7, 3, 6, 3, 5, 2, 4, 2, 3, 3, 2, 3, 1, 4, 0, 43, 0],
           type: 'poly'
@@ -82,9 +82,7 @@
       unselectCurrentMarker: function() {
         var currMarker;
         currMarker = NOITEHOJE.webApp.googleMaps.selectedMarker;
-        if (currMarker) {
-          currMarker.setIcon(currMarker.markerType.image);
-        }
+        if (currMarker) currMarker.setIcon(currMarker.markerType.image);
         return NOITEHOJE.webApp.googleMaps.selectedMarker = null;
       },
       createMarkers: function(map, markers, clickCallback) {
@@ -108,9 +106,7 @@
               NOITEHOJE.webApp.googleMaps.unselectCurrentMarker();
               marker.setIcon(markerType.selected);
               NOITEHOJE.webApp.googleMaps.selectedMarker = marker;
-              if (clickCallback) {
-                return clickCallback(e);
-              }
+              if (clickCallback) return clickCallback(e);
             });
           })(event));
         }
@@ -138,17 +134,13 @@
         return document.title = newTitle;
       },
       updateLocationWithScope: function(type) {
-        if (type === 'any') {
-          type = '';
-        }
+        if (type === 'any') type = '';
         return History.pushState(null, null, this.basePath + type);
       },
       updateLocationForEventDetails: function(newPath) {
         var oldPath;
         if (newPath) {
-          if (!this.listingPath) {
-            this.listingPath = location.pathname;
-          }
+          if (!this.listingPath) this.listingPath = location.pathname;
           return History.pushState(null, null, newPath);
         } else {
           oldPath = this.listingPath ? this.listingPath : this.basePath;
@@ -168,17 +160,13 @@
         var events;
         events = this.allEvents;
         events.show();
-        if (filter === '') {
-          return;
-        }
+        if (filter === '') return;
         return events.each(function() {
           var regex, searchText, thisElem;
           regex = new RegExp(filter, 'gi');
           thisElem = $(this);
           searchText = "" + (thisElem.find('h2').text()) + " " + (thisElem.find('h3').text());
-          if (searchText.match(regex) === null) {
-            return thisElem.hide();
-          }
+          if (searchText.match(regex) === null) return thisElem.hide();
         });
       },
       clearFilter: function() {
@@ -287,9 +275,7 @@
         var d, date_time_text;
         d = new Date(Date.parse(event.start_date));
         date_time_text = "" + this.WEEKDAYS[d.getDay()] + ", " + (d.getDate()) + " de " + this.MONTHS[d.getMonth()];
-        if (event.start_time) {
-          date_time_text += ", " + event.start_time;
-        }
+        if (event.start_time) date_time_text += ", " + event.start_time;
         return date_time_text;
       },
       getTwitterIframeSrc: function(e) {
@@ -335,8 +321,8 @@
         details.find('h3 .date').text(this.formatDateTime(p));
         details.find('.twitter-share-button').attr("src", this.getTwitterIframeSrc(p));
         this.refreshFacebookLikeButton(p);
-        details.find('img.photo').attr('src', p.flyer || p.venue.image || '/images/webapp/party-placeholder.png');
-        details.find('a.photo-link').attr('href', p.flyer || p.venue.image || '/images/webapp/party-placeholder.png').data('title', p.title);
+        details.find('img.photo').attr('src', p.flyer || p.venue.image || '/images/app/party-placeholder.png');
+        details.find('a.photo-link').attr('href', p.flyer || p.venue.image || '/images/app/party-placeholder.png').data('title', p.title);
         details.find('.source-data').text(p.source);
         $('.show-event-map').click();
         eventData = {
@@ -377,9 +363,7 @@
       var elem, img_src;
       elem = $(this);
       img_src = elem.find('img').attr('src');
-      if (img_src === '/images/webapp/party-placeholder.png') {
-        return false;
-      }
+      if (img_src === '/images/app/party-placeholder.png') return false;
       return $.prettyPhoto.open(img_src, elem.data('title'), '');
     });
     $('#details').attr('data-opened', false);
@@ -430,9 +414,7 @@
       });
     };
     FB.Event.subscribe('auth.login', function(response) {});
-    if ($.browser.msie) {
-      $('body').addClass('msie');
-    }
+    if ($.browser.msie) $('body').addClass('msie');
     resize();
     $(window).bind('resize', resize);
     $('.view-scope a').click(function(e) {

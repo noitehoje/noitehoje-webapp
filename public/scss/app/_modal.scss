@@ -33,7 +33,6 @@
     @include box-shadow(rgba(255,255,255,.4),0,1px,0,inset);
     //@include linear-gradient(color-stops(#bd0fb6,#9d0f96));
     @include background-image(linear-gradient(#EEE,#C0C0C0));
-    //border:1px solid #bd0fb6;
     border:1px solid #CCC;
     position:absolute;
     left:50%;
@@ -120,28 +119,20 @@
     text-align:center;
     margin-top:10px;
   }
-
 }
-
 .msie #modal-window {
-   //@include linear-gradient(color-stops(rgba(0,0,0,.55),rgba(0,0,0,.85)));
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#111111', endColorstr='#000000',GradientType=0 );
-   
   .content {
-    //@include linear-gradient(color-stops(#EEE,#C0C0C0));
     filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#C0C0C0',GradientType=0 );
   }
   .screenshots {
     margin-top:-72px;
-  
     height:300px;
   }
   .colaborators {
     a {
-      // @include linear-gradient(color-stops(#EEE,#BBB));
       filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#EEEEEE', endColorstr='#BBBBBB',GradientType=0 );
       font-size:.9em;
     }
-
   }
 }

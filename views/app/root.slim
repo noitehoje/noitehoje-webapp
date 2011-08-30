@@ -1,0 +1,15 @@
+header#header
+  .wrapper
+    == slim :'app/header'
+#main
+  .wrapper
+    == slim :'app/list'
+== slim :'app/details'
+footer#footer
+  .wrapper
+    == slim :'app/footer'
+#modal-window
+  .content
+    == slim :'app/about'
+  a.close-modal[href='#'] × fechar
+== slim :'app/map'

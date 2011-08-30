@@ -1,11 +1,11 @@
 @import "compass/css3";
 @import "html5-boilerplate";
-@import "buttons";
-@import "utilities";
-@import "app-sprites";
-@import "details";
-@import "modal";
-@import "pretty_photo";
+@import "app/buttons";
+@import "app/utilities";
+@import "app/app-sprites";
+@import "app/details";
+@import "app/modal";
+@import "app/pretty_photo";
 @include html5-boilerplate;
 $legacy-support-for-ie: true;
 $nh:#E513ED;
@@ -455,7 +455,7 @@ header#header {
     right: 0;
   }
   #map_loader {
-    background:url(/images/webapp/loader.gif) no-repeat;
+    background:url(/images/app/loader.gif) no-repeat;
     position:absolute;
     top:50%;
     left:50%;

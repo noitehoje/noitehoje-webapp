@@ -37,9 +37,9 @@ NOITEHOJE.webApp.eventDetails = (() ->
     details.find('h3 .date').text(this.formatDateTime p)
     details.find('.twitter-share-button').attr "src", this.getTwitterIframeSrc(p)
     this.refreshFacebookLikeButton(p)
-    details.find('img.photo').attr('src', p.flyer or p.venue.image or '/images/webapp/party-placeholder.png')
+    details.find('img.photo').attr('src', p.flyer or p.venue.image or '/images/app/party-placeholder.png')
     details.find('a.photo-link')
-      .attr('href', p.flyer or p.venue.image or '/images/webapp/party-placeholder.png')
+      .attr('href', p.flyer or p.venue.image or '/images/app/party-placeholder.png')
       .data('title', p.title)
     details.find('.source-data').text p.source
 
@@ -121,7 +121,7 @@ $ () ->
   $("a.photo-link").click () ->
     elem = $ this
     img_src = elem.find('img').attr('src')
-    return false if img_src == '/images/webapp/party-placeholder.png'
+    return false if img_src == '/images/app/party-placeholder.png'
     $.prettyPhoto.open img_src, elem.data('title'), ''
 
   $('#details').attr 'data-opened', false

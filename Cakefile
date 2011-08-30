@@ -5,12 +5,12 @@ inJsLibFiles = [
   'public/js/gmaps-noitehojestyles'
   'public/js/jquery.prettyPhoto'
   'public/js/parseuri'
-  'public/js/webapp/history/json2'
-  'public/js/webapp/history/amplify.store'
-  'public/js/webapp/history/history.adapter.jquery'
-  'public/js/webapp/history/history'
-  'public/js/webapp/history/history.html4'
-  'public/js/webapp/jquery.reject.min']
+  'public/js/app/history/json2'
+  'public/js/app/history/amplify.store'
+  'public/js/app/history/history.adapter.jquery'
+  'public/js/app/history/history'
+  'public/js/app/history/history.html4'
+  'public/js/app/jquery.reject.min']
 
 inCoffeeFiles = [
   'public/coffee/base'
@@ -19,16 +19,16 @@ inCoffeeFiles = [
   'public/coffee/search'
   'public/coffee/ordering'
   'public/coffee/event_details'
-  'public/coffee/webapp']
+  'public/coffee/app']
 
-compilerPath = 'tools/closure-compiler-20110502.jar'
+compilerPath                = 'tools/closure-compiler-20110502.jar'
 
-outLibsJsFile = 'public/js/webapp/compiled/libs.js'
-outLibsJsMinifiedFile = 'public/js/webapp/minified/libs.min.js'
+outLibsJsFile               = 'public/js/app/compiled/libs.js'
+outLibsJsMinifiedFile       = 'public/js/app/minified/libs.min.js'
 
-outNoiteHojeCoffeeFile = 'public/js/webapp/compiled/noitehoje.coffee'
-outNoiteHojeJsFile = 'public/js/webapp/compiled/noitehoje.js'
-outNoiteHojeJsMinifiedFile = 'public/js/webapp/minified/noitehoje.min.js'
+outNoiteHojeCoffeeFile      = 'public/js/app/compiled/noitehoje.coffee'
+outNoiteHojeJsFile          = 'public/js/app/compiled/noitehoje.js'
+outNoiteHojeJsMinifiedFile  = 'public/js/app/minified/noitehoje.min.js'
 
 task 'combine', 'Build single application file from source files', ->
   combineJsFiles = (inputfileNames, outputFileName) ->
@@ -63,7 +63,7 @@ task 'combine', 'Build single application file from source files', ->
           fs.unlink outputFileName, (err) ->
             throw err if err
             console.log 'Done.'
-  
+
   combineJsFiles inJsLibFiles, outLibsJsFile
   combineCoffeeFiles inCoffeeFiles, outNoiteHojeCoffeeFile
 

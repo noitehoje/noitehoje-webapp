@@ -11,7 +11,7 @@ require "#{base_dir}/http"
 # Routes
 require "#{base_dir}/routes/helpers"
 require "#{base_dir}/routes/services"
-require "#{base_dir}/routes/web_app"
+require "#{base_dir}/routes/app"
 require "#{base_dir}/routes/resources"
 require "#{base_dir}/app"
 

@@ -1,7 +1,7 @@
 $nh:#E513ED;
 #details {
   @include box-shadow(rgba(0,0,0,.5),0,0,10px,inset);
-  background:#000 url(/images/webapp/background.png) no-repeat scroll left top;
+  background:#000 url(/images/app/background.png) no-repeat scroll left top;
   position:fixed;
   top:45px;
   right:-599px;
@@ -180,7 +180,7 @@ $nh:#E513ED;
 .msie #details {
   ul.details-toolbar {
     //@include linear-gradient(color-stops(#393939,#191919));
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393939', endColorstr='#191919',GradientType=0 );   
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#393939', endColorstr='#191919',GradientType=0 );
   }
   p.description {
     background:#000;

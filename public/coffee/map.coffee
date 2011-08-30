@@ -8,17 +8,17 @@ NOITEHOJE.webApp.googleMaps = (() ->
     "florianopolis": new google.maps.LatLng(-27.596904,-48.549454)
   showMarker:
     image: new google.maps.MarkerImage(
-      '/images/webapp/show-map-icon.png',
+      '/images/app/show-map-icon.png',
       new google.maps.Size(48,48),
       new google.maps.Point(0,0),
       new google.maps.Point(24,48))
     shadow: new google.maps.MarkerImage(
-      '/images/webapp/show-map-icon-shadow.png',
+      '/images/app/show-map-icon-shadow.png',
       new google.maps.Size(76,48),
       new google.maps.Point(0,0),
       new google.maps.Point(24,48))
     selected: new google.maps.MarkerImage(
-      '/images/webapp/show-map-icon-selected.png',
+      '/images/app/show-map-icon-selected.png',
       new google.maps.Size(48,48),
       new google.maps.Point(0,0),
       new google.maps.Point(24,48))
@@ -27,17 +27,17 @@ NOITEHOJE.webApp.googleMaps = (() ->
       type: 'poly'
   partyMarker:
     image: new google.maps.MarkerImage(
-      '/images/webapp/party-map-icon.png',
+      '/images/app/party-map-icon.png',
       new google.maps.Size(48,48),
       new google.maps.Point(0,0),
       new google.maps.Point(24,48))
     shadow: new google.maps.MarkerImage(
-      '/images/webapp/party-map-icon-shadow.png',
+      '/images/app/party-map-icon-shadow.png',
       new google.maps.Size(76,48),
       new google.maps.Point(0,0),
       new google.maps.Point(24,48))
     selected: new google.maps.MarkerImage(
-      '/images/webapp/party-map-icon-selected.png',
+      '/images/app/party-map-icon-selected.png',
       new google.maps.Size(48,48),
       new google.maps.Point(0,0),
       new google.maps.Point(24,48))

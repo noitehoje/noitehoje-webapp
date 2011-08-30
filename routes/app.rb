@@ -23,39 +23,39 @@ module NoiteHoje
     get "/event/:id/:slug" do
       no_mobile!
       get_event params[:id]
-      slim :root
+      slim :'app/root', :layout => :'app/app'
     end
 
     get "/show" do
       no_mobile!
       set_up_events nil, "show"
-      slim :root
+      slim :'app/root', :layout => :'app/app'
     end
 
     get "/party" do
       no_mobile!
       set_up_events nil, "party"
-      slim :root
+      slim :'app/root', :layout => :'app/app'
     end
 
     get "/map" do
       no_mobile!
       set_up_events nil, nil
       @map_view = true
-      slim :root
+      slim :'app/root', :layout => :'app/app'
     end
 
     get "/about" do
       no_mobile!
       set_up_events nil, nil
       @open_about = true
-      slim :root
+      slim :'app/root', :layout => :'app/app'
     end
 
     get "/" do
       no_mobile!
       set_up_events nil, nil
-      slim :root
+      slim :'app/root', :layout => :'app/app'
     end
 
     def set_up_events city, type
@@ -101,6 +101,12 @@ module NoiteHoje
 
       title << " · Noite Hoje"
       title
+    end
+
+
+    # SITE
+    get "/noitehoje" do
+      slim :'home/index', :layout => :'home/layout'
     end
 
   end
