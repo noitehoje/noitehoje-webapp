@@ -2,6 +2,9 @@
 base_dir = "#{File.dirname(__FILE__)}/.."
 env = ENV['RACK_ENV'] || "development"
 
+require "#{base_dir}/api_helper.rb"
+require "#{base_dir}/users.rb"
+
 require "#{base_dir}/config/environment/#{env}"
 require "#{base_dir}/config/initializers"
 

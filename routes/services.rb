@@ -5,7 +5,7 @@ module NoiteHoje
     set :views, 'views/services'
     helpers Sinatra::NoiteHoje::Helpers
     use HoptoadNotifier::Rack if ENV['RACK_ENV'] != 'development'
-    include Users
+    include NoiteHoje::Users
 
     get '/services' do
       redirect '/signin' unless current_user

@@ -11,13 +11,13 @@ module NoiteHoje
     get '/geteventjson/:id' do
       no_mobile!
       content_type 'application/json', :charset => 'utf-8'
-      open(URI.encode("#{base_url}api/v1/#{App.config.api_keys.first}/getevent/#{params[:id]}")).read
+      api_helper.event_details_json params[:id]
     end
 
     get '/getlocations' do
       no_mobile!
       content_type 'application/json', :charset => 'utf-8'
-      open(URI.encode("#{base_url}api/v1/#{App.config.api_keys.first}/getlocations")).read
+      api_helper.event_locations_json
     end
 
     get "/event/:id/:slug" do
@@ -59,29 +59,21 @@ module NoiteHoje
     end
 
     def set_up_events city, type
-      json = get_json "#{base_url}api/v1/#{App.config.api_keys.first}/getallevents"
-      @events = json["events"]
+      @events = api_helper.all_events
       @cities = App.config.supported_cities.sort_by {|c| c[:name] }
       @title = NoiteHoje::WebApp.get_title city, type
     end
 
-    def get_event event_id
-      json = get_json "#{base_url}api/v1/#{App.config.api_keys.first}/getallevents"
-      @events = json["events"]
+    def api_helper
+      @api_helper ||= ApiHelper.new(App.config.api_keys.first)
+    end
 
-      json = get_json "#{base_url}api/v1/#{App.config.api_keys.first}/getevent/#{event_id}"
-      @event = json
+    def get_event event_id
+      @events = api_helper.all_events
+      @event = api_helper.event_details event_id
 
       @cities = App.config.supported_cities.sort_by {|c| c[:name] }
       @title = NoiteHoje::WebApp.get_title @event["venue"]["location"]["city"], @event["evt_type"]
-    end
-
-    def base_url
-      ENV["RACK_ENV"] == "development" ? "http://localhost:3456/" : "http://api.noitehoje.com.br/"
-    end
-
-    def get_json url
-      JSON.parse(open(URI.encode(url)).read)
     end
 
     def self.get_title city = nil, type = nil, event = nil
@@ -103,11 +95,9 @@ module NoiteHoje
       title
     end
 
-
     # SITE
     get "/noitehoje" do
       slim :'home/index', :layout => :'home/layout'
     end
-
   end
 end
