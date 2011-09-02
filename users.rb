@@ -1,31 +1,37 @@
+#coding: utf-8
 module NoiteHoje
   module Users
-    def add_user_service options
-    end
-
     def create_new_account user_hash
-      @newuser = User.new(
+      new_user = api_helper.new_user(
         name: user_hash[:name],
         email: user_hash[:email],
         phone: user_hash[:phone],
         image: user_hash[:image])
 
-      unless @newuser.save
+      if new_user['error'].present?
         flash[:error] = 'Desculpe, ocorreu um erro ao criar a sua conta.'
+        #TODO: Log the error
         return
       end
 
-      @newuser.services << Service.new(
-        provider: user_hash[:provider],
-        uid: user_hash[:uid],
-        uname: user_hash[:name],
-        uemail: user_hash[:email])
+      new_service = api_helper.add_service(
+        new_user['_id'], {
+          provider: user_hash[:provider],
+          uid: user_hash[:uid],
+          uname: user_hash[:name],
+          uemail: user_hash[:email]
+        })
 
-      @newuser.save
+      if new_service['error'].present?
+        flash[:error] = 'Desculpe, ocorreu um erro ao associar o serviço a sua conta.'
+        #TODO: Log the error
+        return
+      end
+
       # signin existing user
       # in the session his user id and the service id used for signing in is stored
-      session[:user_id] = @newuser.id
-      session[:service_id] = @newuser.services.first.id
+      session[:user_id] = new_user['_id']
+      session[:service_id] = new_service['_id']
     end
 
     def create_authhash omniauth, service
@@ -61,10 +67,6 @@ module NoiteHoje
 
     def set_authhash_value key, value
       @authhash[key] = value.present? ? value.to_s : ""
-    end
-
-    def current_user
-      @current_user ||= User.criteria.for_ids(session[:user_id]).first if session[:user_id]
     end
 
     def user_signed_in?

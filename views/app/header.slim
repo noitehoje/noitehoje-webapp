@@ -24,7 +24,7 @@ h1#logo[title="Noite Hoje · O melhor guia de Festas e Shows da sua cidade!"] No
         li.foursquare
           a[href='/auth/foursquare' title="Entrar com Foursquare"] Entrar com Foursquare
 - else
-  a#user-account.login[href='/services']= current_user.name
+  a#user-account.login[href='/services']= current_user['name']
   .user-panel
     img[src="#{current_user_avatar}" class='avatar']
 .search-box

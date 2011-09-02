@@ -9,7 +9,7 @@ module NoiteHoje
 
     get '/services' do
       redirect '/signin' unless current_user
-      @services = current_user.services.order('provider asc')
+      @services = current_user['services'].sort_by{|s| s['provider'] }
       slim :index
     end
 
@@ -20,9 +20,9 @@ module NoiteHoje
     # POST to remove an authentication service
     post '/services/destroy' do
       # remove an authentication service linked to the current user
-      @service = current_user.services.find(params[:id])
+      @service = current_user['services'].detect{|s| s['_id'] == params[:id] }
 
-      if session[:service_id] == @service.id
+      if session[:service_id] == @service['id']
         flash[:error] = 'You are currently signed in with this account!'
       else
         @service.destroy
@@ -60,29 +60,32 @@ module NoiteHoje
         redirect '/signin'
       end
 
-      auth = Service.where(provider: @authhash[:provider], uid: @authhash[:uid]).first
+      existing_user = api_helper.user_by_service @authhash[:provider], @authhash[:uid]
 
       # if the user is currently signed in, he/she might want to add another account to signin
       if user_signed_in?
-        if auth
+        if existing_user['_id']
           flash[:notice] = "Sua conta #{@authhash[:provider].capitalize} já está conectada ao Noite Hoje."
         else
-          add_user_service(
-            provider: @authhash[:provider],
-            uid: @authhash[:uid],
-            uname: @authhash[:name],
-            uemail: @authhash[:email])
+          api_helper.add_service(
+            current_user['_id'], {
+              provider: @authhash[:provider],
+              uid: @authhash[:uid],
+              uname: @authhash[:name],
+              uemail: @authhash[:email]
+            })
 
           flash[:notice] = "Sua conta #{@authhash[:provider].capitalize} foi adicionada com sucesso."
         end
 
         redirect '/services'
       else
-        if auth
+        if existing_user['_id']
           # signin existing user
           # in the session his user id and the service id used for signing in is stored
-          session[:user_id] = auth.user.id
-          session[:service_id] = auth.id
+          existing_service = existing_user['services'].detect{|s| s['provider'] == @authhash[:provider] }
+          session[:user_id] = existing_user['_id']
+          session[:service_id] = existing_service['_id']
 
           flash[:notice] = "Você entrou utilizando o serviço #{@authhash[:provider].capitalize}."
         else

@@ -64,10 +64,6 @@ module NoiteHoje
       @title = NoiteHoje::WebApp.get_title city, type
     end
 
-    def api_helper
-      @api_helper ||= ApiHelper.new(App.config.api_keys.first)
-    end
-
     def get_event event_id
       @events = api_helper.all_events
       @event = api_helper.event_details event_id
