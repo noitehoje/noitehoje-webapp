@@ -1,6 +1,5 @@
 @import "compass/css3";
 @import "html5-boilerplate";
-@import "app/buttons";
 @import "app/utilities";
 @import "app/app-sprites";
 @import "app/details";
@@ -37,7 +36,6 @@ a:visited {
 a:hover {
   color:lighten($nh,10%);
 }
-
 #logo {
   @include bp(0,0);
   display:block;
@@ -54,21 +52,21 @@ a:hover {
     height:36px;
   }
 }
-header#header,
-footer#footer {
+#header,
+#footer {
+  @include single-box-shadow(rgba(0, 0, 0,.5), 0, -2px, 4px);
   width:100%;
   min-width:980px;
   position:fixed;
   left:0;
   z-index:4;
-  @include single-box-shadow(rgba(0, 0, 0,.5), 0, -2px, 4px);
   bottom:0;
   height:44px;
   color:#FFF;
   line-height:44px;
   text-align:center;
 }
-footer#footer{
+#footer{
   .about-link {
     position:absolute;
     top:0;
@@ -109,7 +107,7 @@ footer#footer{
     }
   }
 }
-header#header {
+#header {
   @include single-box-shadow(rgba(0,0,0,.5), 0, 3px, 3px);
   height:44px;
   top:0;
@@ -117,20 +115,36 @@ header#header {
   .search-box {
     float: right;
     margin-right: 15px;
-    #search {
-      width:100px;
-      font-size:18px;
-      -webkit-transition:opacity .1s linear;
-    }
-    #search:focus { outline:0 none; }
   }
+  #search {
+    width:100px;
+    font-size:18px;
+    -webkit-transition:opacity .1s linear;
+  }
+  #search:focus { outline:0 none; }
   .login {
     position:relative;
     a {
       color:white;
+      text-shadow:#000 1px 1px 0;
     }
   }
-  .login-dropdown, .services-dropdown {
+  .login-dropdown {
+  }
+  .services-dropdown {
+  }
+  .login-dropdown,
+  .services-dropdown {
+    @include single-box-shadow(rgba(0,0,0,.5), -1px, 3px, 9px);
+    border: 2px solid #555;
+    border-radius: 8px;
+    display:none;
+    background:rgba(0,0,0,.5);
+    position:absolute;
+    width:205px;
+    top:48px;
+    right:9px;
+    padding:10px;
     .arrow-border {
       border-color: transparent transparent black transparent;
       border-style: solid;
@@ -139,7 +153,7 @@ header#header {
       width:0;
       position:absolute;
       top: -31px;
-      right: 12px;
+      right: 9px;
     }
     .arrow {
       border-color: transparent transparent #666 transparent;
@@ -149,19 +163,17 @@ header#header {
       width:0;
       position:absolute;
       top: -33px;
-      right: 13px;
+      right: 10px;
     }
-    border: 2px solid #555;
-    border-radius: 8px;
-    //box-shadow: -1px 3px 9px 0px #000;
-    @include single-box-shadow(rgba(0,0,0,.5), -1px, 3px, 9px);
-    display:none;
-    background:rgba(0,0,0,.5);
-    position:absolute;
-    width:185px;
-    height: 110px;
-    top:48px;
-    right:-10px;
+  }
+  h3 {
+    font-size:14px;
+    line-height:21px;
+    text-align:left;
+    width:190px;
+    margin:0 auto;
+    padding-bottom:4px;
+    border-bottom:1px dashed #555;
   }
   .view-dropdown {
     float: left;
@@ -170,6 +182,9 @@ header#header {
     cursor:pointer;
     height:24px;
     .dropdown-wrapper {
+      @include background-image(linear-gradient( rgba(0,0,0,0),rgba(0,0,0,.3) ));
+      @include border-radius(4px);
+      @include single-box-shadow(rgba(255,255,255,.3),0,1px,0);
       color:#FFF;
       width:210px;
       line-height:24px;
@@ -179,9 +194,6 @@ header#header {
       display:block;
       height:24px;
       border:1px solid rgba(0,0,0,.5);
-      @include background-image(linear-gradient( rgba(0,0,0,0),rgba(0,0,0,.3) ));
-      @include border-radius(4px);
-      @include single-box-shadow(rgba(255,255,255,.3),0,1px,0);
       .selected-item {
         margin-right:5px;
         float:left;
@@ -222,12 +234,11 @@ header#header {
         text-shadow:#000 1px 1px 0;
         display:block;
       }
-
     }
   }
 }
 .geo-icon {
-  @include bp(-920px,0);
+  @include bp(-1120px,0);
   width:16px;
   height:16px;
   display:block;
@@ -282,7 +293,7 @@ header#header {
         color:#FFF;
       }
       .photo-wrapper {
-        @include single-box-shadow(#FFF,0,0,6px); //#be00b3
+        @include single-box-shadow(#FFF,0,0,6px);
         opacity:1;
       }
     }
@@ -378,10 +389,10 @@ header#header {
     height:96px;
   }
   .show-placeholder {
-    @include bp(-940px,-40px);
+    @include bp(-1140px,-40px);
   }
   .party-placeholder {
-    @include bp(-830px,-40px);
+    @include bp(-1030px,-40px);
   }
   .event-title {
     display:block;
@@ -400,7 +411,6 @@ header#header {
   right:10px;
   margin-top: -4px;
 }
-
 .small-list {
   .vevent {
     padding:10px;
@@ -415,10 +425,10 @@ header#header {
     height:36px;
   }
   .show-placeholder {
-    @include bp(-870px,0);
+    @include bp(-1070px,0);
   }
   .party-placeholder {
-    @include bp(-830px,0);
+    @include bp(-1030px,0);
   }
   .event-title {
     color: #fff;
@@ -474,7 +484,7 @@ header#header {
   text-align:center;
   a {
     @include background-image(linear-gradient(#9c6a9c,#570057));
-    @include single-box-shadow(rgba(255,255,255,.2), 0, 1px, 1px);
+    @include box-shadow(0 1px 1px rgba(255,255,255,.2), 0 1px 1px rgba(255,255,255,.3));
     height:27px;
     line-height:27px;
     margin:8px 0 8px;
@@ -608,7 +618,7 @@ header#header {
   }
 }
 
-/* Service List */
+// Service List
 #iframe-modal {
   width:300px;
   height:200px;
@@ -623,17 +633,31 @@ header#header {
 }
 #services_list {
   list-style:none;
-  margin:10px 0 0 0;
+  margin:10px auto 0;
+  width:190px;
   li {
     margin:0 auto 10px;
-    width:150px;
+  }
+  li,
+  a {
+    width:190px;
     display:block;
   }
   a {
-    display:block;
-    text-indent: -9999em;
-    width:150px;
+    text-indent:28px;
+    line-height:22px;
     height:22px;
+    font-weight:900;
+    font-size:12px;
+    color:white;
+    text-align:left;
+    &:hover,
+    &:focus,
+    &:active,
+    &:visited {
+      color:white;
+      text-decoration:none;
+    }
   }
   .facebook a {
     background-position:-330px 0;
@@ -645,21 +669,27 @@ header#header {
     }
   }
   .twitter a {
-    background-position:-500px 0;
+    background-position:-550px 0;
+    color: darken(#3E94C4,30%);
+    text-shadow:white 0 1px 0;
     &:hover {
-      background-position:-500px -24px;
+      background-position:-550px -24px;
+      color: darken(#3E94C4,30%);
+      text-shadow:white 0 1px 0;
     }
     &:active {
-      background-position:-500px -48px;
+      background-position:-550px -48px;
+      color: darken(#3E94C4,30%);
+      text-shadow:white 0 1px 0;
     }
   }
   .foursquare a {
-    background-position:-670px 0;
+    background-position:-770px 0;
     &:hover {
-      background-position:-670px -24px;
+      background-position:-770px -24px;
     }
     &:active {
-      background-position:-670px -48px;
+      background-position:-770px -48px;
     }
   }
 }

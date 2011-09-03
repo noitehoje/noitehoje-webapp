@@ -1,4 +1,4 @@
-h1#logo[title="Noite Hoje · O melhor guia de Festas e Shows da sua cidade!"] Noite Hoje
+h1#logo[title='Noite Hoje · O melhor guia de Festas e Shows da sua cidade!'] Noite Hoje
 .view-dropdown.dd-city
   .dropdown-wrapper
     span.geo-icon
@@ -9,38 +9,40 @@ h1#logo[title="Noite Hoje · O melhor guia de Festas e Shows da sua cidade!"] No
       a#all[href='#'] Todas as cidades
     - @cities.each_with_index do |c, i|
       li[class="#{i == (@cities.size - 1) ? 'last' : ''}"]
-        a[id="#{c[:parameter]}" href='#']= c[:name]
+        a[id=c[:parameter] href='#'] #{c[:name]}
 - unless user_signed_in?
   .login
-    a#user-login[href="#" data-location='/signin'] Entrar
+    a#user-login[href='#' data-location='/signin'] Entrar
     .login-dropdown
       .arrow
       .arrow-border
-      ul#services_list
-        li.facebook
-          a[href='/auth/facebook' title="Entrar com Facebook"] Entrar com Facebook
-        li.twitter
-          a[href='/auth/twitter' title="Entrar com Twitter"] Entrar com Twitter
-        li.foursquare
-          a[href='/auth/foursquare' title="Entrar com Foursquare"] Entrar com Foursquare
+      .dropdown-content
+        ul#services_list
+          li.facebook
+            a[href='/auth/facebook' title='Entrar com Facebook'] Entrar com Facebook
+          li.twitter
+            a[href='/auth/twitter' title='Entrar com Twitter'] Entrar com Twitter
+          li.foursquare
+            a[href='/auth/foursquare' title='Entrar com Foursquare'] Entrar com Foursquare
 - else
   a#user-account.login[href='#']= current_user['name']
   .user-panel
-    img[src="#{current_user_avatar}" class='avatar']
+    img[src=current_user_avatar class='avatar']
   .services-dropdown
-      .arrow
-      .arrow-border
+    .arrow
+    .arrow-border
+    .dropdown-content
       - current_user['services'].each do |s|
-        span= "Conectado ao #{s['provider'].capitalize}"
+        h3 Você fez  utilizando o #{s['provider'].capitalize}.
       ul#services_list
         - unless user_is_connected_to_service? 'facebook'
           li.facebook
-            a[href='/auth/facebook' title="Entrar com Facebook"] Conectar com Facebook
+            a[href='/auth/facebook' title='Conectar com Facebook'] Conectar com Facebook
         - unless user_is_connected_to_service? 'twitter'
           li.twitter
-            a[href='/auth/twitter' title="Entrar com Twitter"] Conectar com Twitter
+            a[href='/auth/twitter' title='Conectar com Twitter'] Conectar com Twitter
         - unless user_is_connected_to_service? 'foursquare'
           li.foursquare
-            a[href='/auth/foursquare' title="Entrar com Foursquare"] Conectar com Foursquare
+            a[href='/auth/foursquare' title='Conectar com Foursquare'] Conectar com Foursquare
 .search-box
   input#search[type='search' placeholder='Buscar']

@@ -3,3 +3,47 @@
 @import "home/grid";
 @include html5-boilerplate;
 $legacy-support-for-ie: true;
+$noitehoje:#E513ED;
+body {
+  background:#F4F4F4;
+  header#header,
+  footer#footer,
+  section#main {
+    .wrapper {
+      width:960px;
+      margin:0 auto;
+    }
+  }
+}
+header#header {
+  background:$noitehoje;
+}
+#showcase {
+  background:black;
+  * {
+    color:white;
+  }
+  &:after {
+    content:'';
+    display:block;
+    overflow:hidden;
+    height:0;
+    width:0;
+    clear:both;
+  }
+}
+#showcase_pictures {
+  position:relative;
+  bottom:-100px;
+}
+aside {
+  overflow:hidden;
+  section {
+    width:33%;
+    float:left;
+  }
+}
+.app_showcase {
+  width:33%;
+  float:left;
+}
