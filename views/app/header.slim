@@ -24,8 +24,23 @@ h1#logo[title="Noite Hoje · O melhor guia de Festas e Shows da sua cidade!"] No
         li.foursquare
           a[href='/auth/foursquare' title="Entrar com Foursquare"] Entrar com Foursquare
 - else
-  a#user-account.login[href='/services']= current_user['name']
+  a#user-account.login[href='#']= current_user['name']
   .user-panel
     img[src="#{current_user_avatar}" class='avatar']
+  .services-dropdown
+      .arrow
+      .arrow-border
+      - current_user['services'].each do |s|
+        span= "Conectado ao #{s['provider'].capitalize}"
+      ul#services_list
+        - unless user_is_connected_to_service? 'facebook'
+          li.facebook
+            a[href='/auth/facebook' title="Entrar com Facebook"] Conectar com Facebook
+        - unless user_is_connected_to_service? 'twitter'
+          li.twitter
+            a[href='/auth/twitter' title="Entrar com Twitter"] Conectar com Twitter
+        - unless user_is_connected_to_service? 'foursquare'
+          li.foursquare
+            a[href='/auth/foursquare' title="Entrar com Foursquare"] Conectar com Foursquare
 .search-box
   input#search[type='search' placeholder='Buscar']

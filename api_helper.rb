@@ -41,7 +41,6 @@ class ApiHelper
 
   private
   def get url
-    puts url
     open(URI.encode(url)).read
   end
 

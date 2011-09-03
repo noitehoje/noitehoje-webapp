@@ -31,6 +31,11 @@ module Sinatra
         return "https://api.twitter.com/1/users/profile_image/#{twiter['uid']}" if twitter
       end
 
+      def user_is_connected_to_service? provider
+        return false unless user_signed_in?
+        current_user['services'].detect {|s| s['provider'] == provider }
+      end
+
       def user_signed_in?
         return 1 if current_user
       end

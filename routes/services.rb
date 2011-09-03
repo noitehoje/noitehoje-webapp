@@ -78,7 +78,7 @@ module NoiteHoje
           flash[:notice] = "Sua conta #{@authhash[:provider].capitalize} foi adicionada com sucesso."
         end
 
-        redirect '/services'
+        redirect '/'
       else
         if existing_user['_id']
           # signin existing user

@@ -66,6 +66,9 @@ $ () ->
     e.preventDefault()
     $('.login-dropdown').show()
 
+  $('#user-account').click (e) ->
+    e.preventDefault()
+    $('.services-dropdown').show()
 
   $('body').click (e) ->
     $('.change-dropdown:visible').hide() if $(e.target).parents('.view-dropdown').length == 0
