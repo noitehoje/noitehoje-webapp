@@ -25,26 +25,26 @@ h1#logo[title='Noite Hoje · O melhor guia de Festas e Shows da sua cidade!'] No
           li.foursquare
             a[href='/auth/foursquare' title='Entrar com Foursquare'] Entrar com Foursquare
 - else
-  a#user-account.login[href='#']= current_user['name']
   .user-panel
+    a#user-account.login[href='#']= current_user['name']
     img[src=current_user_avatar class='avatar']
-  .services-dropdown
-    .arrow
-    .arrow-border
-    .dropdown-content
-      - current_user['services'].each do |s|
-        h3 Você está conectado utilizando o #{s['provider'].capitalize}.
-      ul#services_list
-        - unless user_is_connected_to_service? 'facebook'
-          li.facebook
-            a[href='/auth/facebook' title='Conectar com Facebook'] Conectar com Facebook
-        - unless user_is_connected_to_service? 'twitter'
-          li.twitter
-            a[href='/auth/twitter' title='Conectar com Twitter'] Conectar com Twitter
-        - unless user_is_connected_to_service? 'foursquare'
-          li.foursquare
-            a[href='/auth/foursquare' title='Conectar com Foursquare'] Conectar com Foursquare
-      h3.last
-        a[href='/signout'] Sair
+    .services-dropdown
+      .arrow
+      .arrow-border
+      .dropdown-content
+        - current_user['services'].each do |s|
+          h3 Você está conectado utilizando o #{s['provider'].capitalize}.
+        ul#services_list
+          - unless user_is_connected_to_service? 'facebook'
+            li.facebook
+              a[href='/auth/facebook' title='Conectar com Facebook'] Conectar com Facebook
+          - unless user_is_connected_to_service? 'twitter'
+            li.twitter
+              a[href='/auth/twitter' title='Conectar com Twitter'] Conectar com Twitter
+          - unless user_is_connected_to_service? 'foursquare'
+            li.foursquare
+              a[href='/auth/foursquare' title='Conectar com Foursquare'] Conectar com Foursquare
+        h3.last
+          a[href='/signout'] Sair
 .search-box
   input#search[type='search' placeholder='Buscar']

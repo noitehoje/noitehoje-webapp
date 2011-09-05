@@ -66,14 +66,14 @@ $ () ->
     e.preventDefault()
     $('.login-dropdown').show()
 
-  $('#user-account').click (e) ->
+  $('.user-panel').click (e) ->
     e.preventDefault()
     $('.services-dropdown').show()
 
   $('body').click (e) ->
     $('.change-dropdown:visible').hide() if $(e.target).parents('.view-dropdown').length == 0
     $(".login-dropdown:visible").hide() if $(e.target).parents('.login').length == 0
-    $(".services-dropdown:visible").hide() unless $(e.target).attr('id') == "user-account"
+    $(".services-dropdown:visible").hide() if $(e.target).parents('.user-panel').length == 0
 
 # SETS THE HEIGHT FOR THE DETAILS PANEL
 resize = () ->

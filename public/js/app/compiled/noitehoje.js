@@ -483,7 +483,7 @@
       e.preventDefault();
       return $('.login-dropdown').show();
     });
-    $('#user-account').click(function(e) {
+    $('.user-panel').click(function(e) {
       e.preventDefault();
       return $('.services-dropdown').show();
     });
@@ -494,7 +494,7 @@
       if ($(e.target).parents('.login').length === 0) {
         $(".login-dropdown:visible").hide();
       }
-      if ($(e.target).attr('id') !== "user-account") {
+      if ($(e.target).parents('.user-panel').length === 0) {
         return $(".services-dropdown:visible").hide();
       }
     });
