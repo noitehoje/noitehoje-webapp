@@ -73,6 +73,7 @@ $ () ->
   $('body').click (e) ->
     $('.change-dropdown:visible').hide() if $(e.target).parents('.view-dropdown').length == 0
     $(".login-dropdown:visible").hide() if $(e.target).parents('.login').length == 0
+    $(".services-dropdown:visible").hide() unless $(e.target).attr('id') == "user-account"
 
 # SETS THE HEIGHT FOR THE DETAILS PANEL
 resize = () ->

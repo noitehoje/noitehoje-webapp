@@ -130,6 +130,7 @@ a:hover {
     }
   }
   .login-dropdown {
+    padding: 10px;
   }
   .services-dropdown {
   }
@@ -144,7 +145,6 @@ a:hover {
     width:205px;
     top:48px;
     right:9px;
-    padding:10px;
     .arrow-border {
       border-color: transparent transparent black transparent;
       border-style: solid;
@@ -170,10 +170,16 @@ a:hover {
     font-size:14px;
     line-height:21px;
     text-align:left;
-    width:190px;
-    margin:0 auto;
-    padding-bottom:4px;
-    border-bottom:1px dashed #555;
+    margin:0;
+    padding:5px 10px;
+    border-bottom:1px solid #555;
+  }
+  h3.last {
+    border-bottom: 0 none;
+    border-top: 1px solid #555;
+    a {
+      color: inherit;
+    }
   }
   .view-dropdown {
     float: left;

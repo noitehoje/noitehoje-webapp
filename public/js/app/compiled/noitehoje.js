@@ -492,7 +492,10 @@
         $('.change-dropdown:visible').hide();
       }
       if ($(e.target).parents('.login').length === 0) {
-        return $(".login-dropdown:visible").hide();
+        $(".login-dropdown:visible").hide();
+      }
+      if ($(e.target).attr('id') !== "user-account") {
+        return $(".services-dropdown:visible").hide();
       }
     });
   });
