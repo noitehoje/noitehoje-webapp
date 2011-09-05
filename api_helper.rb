@@ -1,7 +1,7 @@
 class ApiHelper
   def initialize api_key
     @api_key = api_key
-    @base_url = ENV["RACK_ENV"] == "development" ? "http://localhost:3456/" : "http://noitehoje-staging.heroku.com/"
+    @base_url = API_BASE_URL
   end
 
   # Event methods

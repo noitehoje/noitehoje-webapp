@@ -484,7 +484,6 @@
       return $('.login-dropdown').show();
     });
     $('.user-panel').click(function(e) {
-      e.preventDefault();
       return $('.services-dropdown').show();
     });
     return $('body').click(function(e) {

@@ -26,14 +26,17 @@ h1#logo[title='Noite Hoje · O melhor guia de Festas e Shows da sua cidade!'] No
             a[href='/auth/foursquare' title='Entrar com Foursquare'] Entrar com Foursquare
 - else
   .user-panel
-    a#user-account.login[href='#']= current_user['name']
+    a#user-account.username[href='#']= current_user['name']
     img[src=current_user_avatar class='avatar']
     .services-dropdown
       .arrow
       .arrow-border
       .dropdown-content
-        - current_user['services'].each do |s|
-          h3 Você está conectado utilizando o #{s['provider'].capitalize}.
+        - if current_user['services'].size > 0
+          h3 Serviços conectados:
+          - current_user['services'].each do |s|
+            h4 #{s['provider'].capitalize}
+        .sep[style='margin-top: 10px;']
         ul#services_list
           - unless user_is_connected_to_service? 'facebook'
             li.facebook
@@ -44,7 +47,8 @@ h1#logo[title='Noite Hoje · O melhor guia de Festas e Shows da sua cidade!'] No
           - unless user_is_connected_to_service? 'foursquare'
             li.foursquare
               a[href='/auth/foursquare' title='Conectar com Foursquare'] Conectar com Foursquare
-        h3.last
+        .sep
+        h3
           a[href='/signout'] Sair
 .search-box
   input#search[type='search' placeholder='Buscar']

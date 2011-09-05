@@ -67,7 +67,6 @@ $ () ->
     $('.login-dropdown').show()
 
   $('.user-panel').click (e) ->
-    e.preventDefault()
     $('.services-dropdown').show()
 
   $('body').click (e) ->
