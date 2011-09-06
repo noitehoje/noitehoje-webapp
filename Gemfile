@@ -17,10 +17,12 @@ gem 'compass'
 gem 'rspec'
 gem 'tzinfo'
 gem 'dalli'
+gem 'twitter'
 gem 'rack', '1.2.3'
 gem 'html5-boilerplate'
 gem 'rack-mobile-detect'
 gem 'addressable'
+gem 'oauth'
 gem 'oauth2', '0.5.0'#, :path => "~/Data/Projects/oauth2"
 gem 'omniauth', :git => "git://github.com/felipecsl/omniauth.git"# :path => "~/Data/Projects/omniauth"
 gem 'skittles', git: "git://github.com/felipecsl/skittles.git"#, :path => "~/Data/Projects/skittles"

@@ -13,10 +13,6 @@ module NoiteHoje
       slim :index
     end
 
-    get '/signin' do
-      slim :signin
-    end
-
     # POST to remove an authentication service
     post '/services/destroy' do
       # remove an authentication service linked to the current user

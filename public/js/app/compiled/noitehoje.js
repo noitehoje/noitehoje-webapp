@@ -479,10 +479,6 @@
         return $('#map_wrapper').hide();
       }
     });
-    $('#user-login').click(function(e) {
-      e.preventDefault();
-      return $('.login-dropdown').show();
-    });
     $('.user-panel').click(function(e) {
       return $('.services-dropdown').show();
     });

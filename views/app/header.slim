@@ -12,18 +12,8 @@ h1#logo[title='Noite Hoje · O melhor guia de Festas e Shows da sua cidade!'] No
         a[id=c[:parameter] href='#'] #{c[:name]}
 - unless user_signed_in?
   .login
-    a#user-login[href='#' data-location='/signin'] Entrar
-    .login-dropdown
-      .arrow
-      .arrow-border
-      .dropdown-content
-        ul#services_list
-          li.facebook
-            a[href='/auth/facebook' title='Entrar com Facebook'] Entrar com Facebook
-          li.twitter
-            a[href='/auth/twitter' title='Entrar com Twitter'] Entrar com Twitter
-          li.foursquare
-            a[href='/auth/foursquare' title='Entrar com Foursquare'] Entrar com Foursquare
+    a#user-login[href='/auth/facebook']
+      img[src='/images/app/login.png']
 - else
   .user-panel
     a#user-account.username[href='#']= current_user['name']
@@ -47,7 +37,8 @@ h1#logo[title='Noite Hoje · O melhor guia de Festas e Shows da sua cidade!'] No
           - unless user_is_connected_to_service? 'foursquare'
             li.foursquare
               a[href='/auth/foursquare' title='Conectar com Foursquare'] Conectar com Foursquare
-        .sep
+        - if current_user['services'].size < 3
+          .sep
         h3
           a[href='/signout'] Sair
 .search-box

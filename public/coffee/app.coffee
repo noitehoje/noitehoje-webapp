@@ -61,11 +61,6 @@ $ () ->
       $('.view-dropdown, .view-scope').show()
       $('#map_wrapper').hide()
 
-  #LOGIN WINDOW
-  $('#user-login').click (e) ->
-    e.preventDefault()
-    $('.login-dropdown').show()
-
   $('.user-panel').click (e) ->
     $('.services-dropdown').show()
 
