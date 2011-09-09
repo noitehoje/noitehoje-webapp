@@ -50,18 +50,18 @@ module NoiteHoje
         set_authhash_value :uid,      omniauth['extra']['user_hash']['id']
         set_authhash_value :phone,    omniauth['extra']['user_hash']['phone']
         set_authhash_value :provider, omniauth['provider']
-        Skittles.configure do |config|
-          config.access_token =       omniauth['credentials']['token'] if ENV["RACK_ENV"] != "test"
-        end
+        # Skittles.configure do |config|
+        #   config.access_token =       omniauth['credentials']['token'] if ENV["RACK_ENV"] != "test"
+        # end
       elsif service == 'twitter'
-        set_authhash_value :email, omniauth['user_info']['email']
-        set_authhash_value :name, omniauth['user_info']['name']
-        set_authhash_value :uid, omniauth['uid']
+        set_authhash_value :email,    omniauth['user_info']['email']
+        set_authhash_value :name,     omniauth['user_info']['name']
+        set_authhash_value :uid,      omniauth['uid']
         set_authhash_value :provider, omniauth['provider']
-        Twitter.configure do |config|
-          config.oauth_token =        omniauth['credentials']['token']
-          config.oauth_token_secret = omniauth['credentials']['secret']
-        end
+        # Twitter.configure do |config|
+        #   config.oauth_token =        omniauth['credentials']['token']
+        #   config.oauth_token_secret = omniauth['credentials']['secret']
+        # end
       else
         # debug to output the hash that has been returned when adding new services
         puts "Invalid service in hash received: #{omniauth.to_yaml}"

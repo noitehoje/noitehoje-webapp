@@ -233,6 +233,7 @@
     };
   })();
   $(function() {
+    var defaultCity;
     NOITEHOJE.webApp.ordering.dateOrderedList = $('.events li');
     NOITEHOJE.webApp.ordering.nameOrderedList = $('.events li').sort(NOITEHOJE.webApp.ordering.sortAlpha);
     $('.view-dropdown').click(function() {
@@ -257,7 +258,7 @@
       }
       return false;
     });
-    return $('.dd-city a').click(function() {
+    $('.dd-city a').click(function() {
       var city, filter;
       city = $(this).attr('id');
       if (city === 'all') {
@@ -265,8 +266,14 @@
       } else {
         filter = $(this).text();
       }
-      return filterByCity(filter);
+      filterByCity(filter);
+      if (Modernizr.localstorage) {
+        return localStorage['selectedCity'] = filter;
+      }
     });
+    defaultCity = Modernizr.localstorage && localStorage['selectedCity'] ? localStorage['selectedCity'] : 'Porto Alegre';
+    $(".view-dropdown .selected-item").text(defaultCity);
+    return filterByCity(defaultCity);
   });
   filterByCity = function(city) {
     return $('.events li span.location').each(function() {

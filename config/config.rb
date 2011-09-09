@@ -8,7 +8,7 @@ module NoiteHoje
       # 2. webapp key
       @api_keys = ['crEjew8r', 'saQ8jFnb']
       @supported_cities = []
-      add_supported_cities "Porto Alegre", "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba"
+      add_supported_cities "Porto Alegre", "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba", "Florianópolis"
     end
 
    private

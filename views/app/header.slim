@@ -2,11 +2,9 @@ h1#logo[title='Noite Hoje · O melhor guia de Festas e Shows da sua cidade!'] No
 .view-dropdown.dd-city
   .dropdown-wrapper
     span.geo-icon
-    span.selected-item Todas as cidades
+    span.selected-item
     span.arrow
   ul.change-dropdown
-    li
-      a#all[href='#'] Todas as cidades
     - @cities.each_with_index do |c, i|
       li[class="#{i == (@cities.size - 1) ? 'last' : ''}"]
         a[id=c[:parameter] href='#'] #{c[:name]}

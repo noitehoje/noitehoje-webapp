@@ -34,6 +34,14 @@ $ () ->
       filter = $(this).text()
     filterByCity filter
 
+    if Modernizr.localstorage
+      localStorage['selectedCity'] = filter
+
+  # set the default city
+  defaultCity = if Modernizr.localstorage && localStorage['selectedCity'] then localStorage['selectedCity'] else 'Porto Alegre'
+  $(".view-dropdown .selected-item").text defaultCity
+  filterByCity defaultCity
+
 filterByCity = (city) ->
   $('.events li span.location').each () ->
     li = $(this).parents('li')

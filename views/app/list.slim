@@ -1,7 +1,7 @@
 section#listings.small-list
   ul.events
     - @events.each do |s|
-      li
+      li[style='display:none;']
         a.vevent[id=s["_id"] href="/event/#{s['_id']}/#{s['slug']}" data-event-type=s["evt_type"]]
           .photo-wrapper
             - if s["flyer"].present?
