@@ -58,6 +58,11 @@ module NoiteHoje
       slim :'app/root', :layout => :'app/app'
     end
 
+    # temporary route that redirects to the actual API url
+    get "/api/*" do
+      redirect "http://api.noitehoje.com.br#{request.env["REQUEST_URI"]}"
+    end
+
     def set_up_events city, type
       @events = api_helper.all_events
       @cities = App.config.supported_cities.sort_by {|c| c[:name] }
