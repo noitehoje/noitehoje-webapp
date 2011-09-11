@@ -6,6 +6,8 @@ $legacy-support-for-ie: true;
 $noitehoje:#E513ED;
 body {
   background:#F4F4F4;
+  font-family:'Helvetica Neue', Helvetica, Arial, sans-serif;
+  text-rendering:geometricPrecision;
   header#header,
   footer#footer,
   section#main {
@@ -16,12 +18,50 @@ body {
   }
 }
 header#header {
-  background:$noitehoje;
-}
-#showcase {
-  background:black;
+  background:url(/images/shared/sprite-x.png) repeat-x left top;
+  height:44px;
   * {
     color:white;
+  }
+  nav {
+    text-align:right;
+    a {
+      font-weight:900;
+      text-shadow:#000 1px 1px 0;
+      text-decoration:none;
+      line-height:40px;
+      margin-left:10px;
+    }
+  }
+}
+#logo {
+  text-indent:-9999em;
+  background: transparent url(/images/nh/logo.png) no-repeat left top;
+  width:338px;
+  height:116px;
+}
+#showcase {
+  background: url(/images/nh/people-dancing.png) repeat-x 22% bottom, black url(/images/background.jpg) repeat left top;
+  padding-top:30px;
+  .wrapper {
+    position:relative;
+  }
+  * {
+    color:white;
+  }
+  h1 {
+    float:left;
+    width:258px;
+    margin:40px 0 0 140px;
+  }
+  h2 {
+    float:left;
+    width:422px;
+    font-size:40px;
+    font-weight:100;
+    margin:10px 0 0 20px;
+    text-shadow:#000 0 -1px 0;
+    letter-spacing:2px;
   }
   &:after {
     content:'';
@@ -31,13 +71,47 @@ header#header {
     width:0;
     clear:both;
   }
+  .app_download {
+    position:absolute;
+    top:80px;
+    right:120px;
+    list-style:none;
+    li {
+      margin-bottom:10px;
+      a {
+        display:block;
+        width:204px;
+        text-indent:-9999em;
+        background:transparent url(/images/nh/store-logos.png) no-repeat scroll;
+        &.apple_app_store {
+          background-position:0 0;
+          height:72px;
+        }
+        &.android_market {
+          background-position:0 -78px;
+          height:89px;
+        }
+        &.try_on_the_web {
+          background-position:0 -178px;
+          height:59px;
+        }
+      }
+    }
+  }
 }
+.clear {clear:both}
 #showcase_pictures {
-  position:relative;
-  bottom:-100px;
+  clear:both;
+  height:300px;
+  img {
+    display:block;
+    position:relative;
+    left:100px;
+  }
 }
 aside {
   overflow:hidden;
+  padding:200px 0;
   section {
     width:33%;
     float:left;
@@ -46,4 +120,47 @@ aside {
 .app_showcase {
   width:33%;
   float:left;
+}
+#usual_suspects {
+  @include border-radius(6px);
+  @include box-shadow(#fff 0 1px 0 inset, #888 0 2px 4px);
+  border:1px solid #DDD;
+  background:#DDD;
+  padding:10px;
+  ul {
+    list-style:none;
+    margin:0;
+    padding:0;
+  }
+  li {
+    clear:both;
+    text-shadow:#fff 0 1px 0;
+    font-size:14px;
+    margin:0;
+    padding:0;
+    margin-bottom:10px;
+    &.last {
+      margin:0;
+    }
+  }
+  .role {
+    @include border-radius(1em);
+    display:inline-block;
+    padding:2px 8px;
+    font-size:11px;
+    font-weight:900;
+    background:#BBB;
+    color:#444;
+    margin:0 3px;
+  }
+  .twitter {
+    background:url(/images/nh/twitter.png) no-repeat 0 0;
+    height:16px;
+    width:21px;
+    display:inline-block;
+    text-indent:-9999em;
+    &:hover {
+      background-position:-21px 0;
+    }
+  }
 }

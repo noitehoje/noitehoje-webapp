@@ -21,6 +21,9 @@ module NoiteHoje
     end
 
     get "/event/:id/:slug" do
+      # #TODO route for slug v2.0
+      # /city/:slug
+      # SEE SLUG DOCUMENTATION AT NOITEHOJE-BACKEND
       no_mobile!
       get_event params[:id]
       slim :'app/root', :layout => :'app/app'
@@ -97,7 +100,7 @@ module NoiteHoje
     end
 
     # SITE
-    get "/noitehoje" do
+    get '/home_wip' do
       slim :'home/index', :layout => :'home/layout'
     end
   end
