@@ -6,6 +6,9 @@ module Sinatra
       def twitter_and_gravatar(username, email_address)
         "<a href='http://twitter.com/#{username}' rel='nofollow' target='_blank'><img src='http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email_address.downcase)}?s=24'>@#{username}</a>"
       end
+      def gravatar(email_address)
+        "<a href='mailto:#{email_address}' rel='nofollow' target='_blank'><img src='http://www.gravatar.com/avatar/#{Digest::MD5.hexdigest(email_address.downcase)}?s=24'></a>"
+      end
 
       def admin?
         request.cookies[settings.username] == settings.token

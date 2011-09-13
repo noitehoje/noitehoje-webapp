@@ -6,7 +6,28 @@ section#main
     .wrapper
       == slim :who_we_are
       == slim :events_map
+      == slim :features
       == slim :twitter_feed
       .clear
 footer#footer
   == slim :footer
+
+/
+  • #showcase
+   - definir as imagens de cada device e refinar a imagem principal [posicionamento dos devices em comparação com a tela]
+   - experimentar com efeitos de luzes por trás da galera [css3 keyframes]
+  • #header
+   - definir itens do menu [agora tão links pro blog(link_externo) e contato(anchor) — eu colocaria links para ]
+   - definir interação do menu [se houver]
+  • aside [abaixo do #showcase]
+   - incluir features do aplicativo [pensei em reaproveitar o texto da App Store, melhorando a arquitetura de informação e formatação do texto.
+   - inlcuir um mapa interativo com as festas da localização do cara
+    > pega a geolocation pelo browser, se não houver, aparece só um box para seleção da cidade
+   - twitter feed com as últimas tuitadas para o @noitehoje e #noitehoje
+  • #footer
+   - like / tweet
+   - form para contato
+   - buy me a beer / coffee / lunch
+   - um belo disclaimer dizendo que não somos responsáveis pela informação exibida no site.
+  KONAMI CODE:
+   - video do dimitri aparece num modal [bombando]
