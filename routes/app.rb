@@ -2,7 +2,7 @@
 
 module NoiteHoje
   class WebApp < Sinatra::Base
-    set :views, 'views'
+    set :views, 'views/app'
     helpers Sinatra::NoiteHoje::Helpers
 
     use Rack::MobileDetect
@@ -26,39 +26,39 @@ module NoiteHoje
       # SEE SLUG DOCUMENTATION AT NOITEHOJE-BACKEND
       no_mobile!
       get_event params[:id]
-      slim :'app/root', :layout => :'app/app'
+      slim :root
     end
 
     get "/show" do
       no_mobile!
       set_up_events nil, "show"
-      slim :'app/root', :layout => :'app/app'
+      slim :root
     end
 
     get "/party" do
       no_mobile!
       set_up_events nil, "party"
-      slim :'app/root', :layout => :'app/app'
+      slim :root
     end
 
     get "/map" do
       no_mobile!
       set_up_events nil, nil
       @map_view = true
-      slim :'app/root', :layout => :'app/app'
+      slim :root
     end
 
     get "/about" do
       no_mobile!
       set_up_events nil, nil
       @open_about = true
-      slim :'app/root', :layout => :'app/app'
+      slim :root
     end
 
     get "/" do
       no_mobile!
       set_up_events nil, nil
-      slim :'app/root', :layout => :'app/app'
+      slim :root
     end
 
     # temporary route that redirects to the actual API url
@@ -77,14 +77,14 @@ module NoiteHoje
       @event = api_helper.event_details event_id
 
       @cities = App.config.supported_cities.sort_by {|c| c[:name] }
-      @title = NoiteHoje::WebApp.get_title @event["venue"]["location"]["city"], @event["evt_type"]
+      @title = NoiteHoje::WebApp.get_title @event["venue"]["location"]["city"], @event["evt_type"], @event
     end
 
     def self.get_title city = nil, type = nil, event = nil
       title = ""
       if event
         friendly_type = ((type == "party") ? "Festa" : "Show")
-        title = "#{friendly_type} #{event.title} em #{event.venue.location.city}"
+        title = "#{friendly_type} #{event['title']} em #{city}"
       else
         if type.present?
           title << ((type == "show") ? "Shows" : "Festas")
@@ -95,7 +95,6 @@ module NoiteHoje
         title << " em #{city}" if city.present?
       end
 
-      title << " · Noite Hoje"
       title
     end
 
