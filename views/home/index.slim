@@ -1,12 +1,12 @@
 header#header
-  == slim :'home/header'
+  == slim :header
 section#main
-  == slim :'home/showcase'
+  == slim :showcase
   aside
     .wrapper
-      == slim :'home/who_we_are'
-      == slim :'home/events_map'
-      == slim :'home/twitter_feed'
+      == slim :who_we_are
+      == slim :events_map
+      == slim :twitter_feed
       .clear
 footer#footer
-  == slim :'home/footer'
+  == slim :footer

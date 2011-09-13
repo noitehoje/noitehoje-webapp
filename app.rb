@@ -21,6 +21,7 @@ module NoiteHoje
 
     use NoiteHoje::Resources
     use NoiteHoje::WebApp
+    use NoiteHoje::Home
     use NoiteHoje::Services
 
     use NewRelic::Rack::DeveloperMode if ENV['RACK_ENV'] == 'development'

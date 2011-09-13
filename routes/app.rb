@@ -97,10 +97,5 @@ module NoiteHoje
 
       title
     end
-
-    # SITE
-    get '/home_wip' do
-      slim :'home/index', :layout => :'home/layout'
-    end
   end
 end
