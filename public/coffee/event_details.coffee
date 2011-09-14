@@ -59,7 +59,6 @@ NOITEHOJE.webApp.eventDetails = (() ->
 
     NOITEHOJE.webApp.googleMaps.setupMap mapOptions
 
-    #type = if p.evt_type == "party" then "Festa" else "Show"
     details.find('span.event-type-icon').removeClass('party').removeClass('show').addClass p.evt_type
 
   closeDetailsPanel: () ->
@@ -126,17 +125,22 @@ $ () ->
 
   $('#details').attr 'data-opened', false
 
+  # TABS
   $('.tabs-control li').click (e) ->
     e.preventDefault()
     $('.tabs-control li').removeClass 'current'
     current_tab = $(this).attr 'class'
     $(this).addClass 'current'
+
+    $('#details').find('p.description, .details-map, .details-ppl-checkd-in, .details-comments').hide()
     if current_tab == 'show-event-map'
       $('#details .details-map').show()
-      $('#details p.description').hide()
-    else
-      $('#details .details-map').hide()
+    else if current_tab == "show-event-description"
       $('#details p.description').show()
+    else if current_tab == "show-ppl-checkd-in"
+      $('#details .details-ppl-checkd-in').show()
+    else if current_tab == "show-comments"
+      $('#details .details-comments').show()
 
   # Open details panel
   $('#listings li .vevent').live 'click', (e) ->

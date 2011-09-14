@@ -64,6 +64,11 @@ $ () ->
   $('.user-panel').click (e) ->
     $('.services-dropdown').show()
 
+  # FLASH
+  setTimeout(() ->
+    $(".flash").fadeOut()
+  , 3000)
+
   $('body').click (e) ->
     $('.change-dropdown:visible').hide() if $(e.target).parents('.view-dropdown').length == 0
     $(".login-dropdown:visible").hide() if $(e.target).parents('.login').length == 0

@@ -76,6 +76,11 @@ module NoiteHoje
       @events = api_helper.all_events
       @event = api_helper.event_details event_id
 
+      if @event["error"]
+        flash[:error] = "Festa ou show não encontrado."
+        redirect "/"
+      end
+
       @cities = App.config.supported_cities.sort_by {|c| c[:name] }
       @title = NoiteHoje::WebApp.get_title @event["venue"]["location"]["city"], @event["evt_type"], @event
     end

@@ -709,3 +709,16 @@ a:hover {
     }
   }
 }
+.flash {
+  color: white;
+  position: absolute;
+  top: 55px;
+  left: 50%;
+  z-index: 10;
+  background-color: #888;
+  padding: 5px 10px;
+  margin-left: -95px;
+  box-shadow: 0px 0px 10px #000;
+  border-radius: 5px;
+  text-shadow: 0 1px 1px #333;
+}

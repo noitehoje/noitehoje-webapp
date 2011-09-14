@@ -1,4 +1,6 @@
 section#listings.small-list
+  - if flash[:error]
+    .flash= flash[:error]
   ul.events
     - @events.each do |s|
       li[style='display:none;']

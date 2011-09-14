@@ -396,12 +396,15 @@
       $('.tabs-control li').removeClass('current');
       current_tab = $(this).attr('class');
       $(this).addClass('current');
+      $('#details').find('p.description, .details-map, .details-ppl-checkd-in, .details-comments').hide();
       if (current_tab === 'show-event-map') {
-        $('#details .details-map').show();
-        return $('#details p.description').hide();
-      } else {
-        $('#details .details-map').hide();
+        return $('#details .details-map').show();
+      } else if (current_tab === "show-event-description") {
         return $('#details p.description').show();
+      } else if (current_tab === "show-ppl-checkd-in") {
+        return $('#details .details-ppl-checkd-in').show();
+      } else if (current_tab === "show-comments") {
+        return $('#details .details-comments').show();
       }
     });
     $('#listings li .vevent').live('click', function(e) {
@@ -489,6 +492,9 @@
     $('.user-panel').click(function(e) {
       return $('.services-dropdown').show();
     });
+    setTimeout(function() {
+      return $(".flash").fadeOut();
+    }, 3000);
     return $('body').click(function(e) {
       if ($(e.target).parents('.view-dropdown').length === 0) {
         $('.change-dropdown:visible').hide();

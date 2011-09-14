@@ -29,8 +29,15 @@ aside#details.party
       ul.tabs-control
         li.show-event-map.current Mapa
         li.show-event-description Mais informações
+        /- if user_signed_in?
+        /  li.show-ppl-checkd-in Quem está aqui?
+        /  li.show-comments Comentários
       .details-map
       p.description
+      /.details-ppl-checkd-in
+      /  p Quem está aqui
+      /.details-comments
+      /  p Comentar
     p.source
       | Fonte:
       span.source-data
