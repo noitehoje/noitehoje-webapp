@@ -18,6 +18,7 @@ inCoffeeFiles = [
   'public/coffee/location'
   'public/coffee/search'
   'public/coffee/ordering'
+  'public/coffee/prettyPhoto'
   'public/coffee/event_details'
   'public/coffee/app']
 

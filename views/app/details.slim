@@ -21,23 +21,22 @@ aside#details.party
         span.date
       .event-information
         span.venue-name
+        a.map-link[href="#" target="_blank"]
+          img.map-icon[src="/images/app/map-icon.png"]
         p.address
         p.phone
         p.site
           a[href='#' target='_blank'] site
         p.location
       ul.tabs-control
-        li.show-event-map.current Mapa
-        li.show-event-description Mais informações
-        /- if user_signed_in?
-        /  li.show-ppl-checkd-in Quem está aqui?
-        /  li.show-comments Comentários
-      .details-map
+        li.show-event-description.current Mais informações
+        - if user_signed_in?
+          /li.show-ppl-checkd-in Quem está aqui?
+          li.show-comments Comentários
       p.description
       /.details-ppl-checkd-in
       /  p Quem está aqui
-      /.details-comments
-      /  p Comentar
+      .details-comments
     p.source
       | Fonte:
       span.source-data

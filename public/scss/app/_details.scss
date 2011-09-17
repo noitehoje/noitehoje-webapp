@@ -102,6 +102,9 @@ $nh:#E513ED;
     border:1px solid darken($nh,25%);
     background:rgba(0,0,0,.4);
   }
+  .details-comments {
+    padding: 0;
+  }
   .venue-name {
     @include border-radius(3px);
     @include background-image(linear-gradient(darken($nh,25%),darken($nh,30%)));
@@ -116,6 +119,10 @@ $nh:#E513ED;
   }
   .address {
     clear:left;
+  }
+  .map-icon {
+    margin-top: 10px;
+    margin-left: 10px;
   }
   .phone {
     clear:left;
