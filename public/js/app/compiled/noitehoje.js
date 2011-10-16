@@ -293,7 +293,7 @@
       opacity: 0.5,
       markup: "        <div class='pp_pic_holder'>          <div class='pp_top'>            <div class='pp_left'></div>            <div class='pp_middle'></div>            <div class='pp_right'></div>          </div>          <a class='pp_close' href='#'>× fechar</a>          <div class='pp_content_container'>            <div class='pp_left'>              <div class='pp_right'>                <div class='pp_content'>                  <div class='pp_loaderIcon'></div>                  <div class='pp_fade'>                    <a href='#' class='pp_expand' title='Expand the image'>Expand</a>                    <div class='pp_hoverContainer'>                      <a class='pp_next' href='#'>next</a>                      <a class='pp_previous' href='#'>previous</a>                    </div>                    <div id='pp_full_res'></div>                    <div class='pp_details'>                      <div class='ppt'>&nbsp;</div>                      <div class='pp_nav'>                        <a href='#' class='pp_arrow_previous'>Previous</a>                        <p class='currentTextHolder'>0/0</p>                        <a href='#' class='pp_arrow_next'>Next</a>                      </div>                      <p class='pp_description'></p>                    </div>                  </div>                </div>              </div>            </div>          </div>          <div class='pp_bottom'>            <div class='pp_left'></div>            <div class='pp_middle'></div>            <div class='pp_right'></div>          </div>        </div>        <div class='pp_overlay'></div>"
     });
-    return $("a.photo-link").click(function() {
+    $("a.photo-link").click(function() {
       var elem, img_src;
       elem = $(this);
       img_src = elem.find('img').attr('src');
@@ -301,6 +301,34 @@
         return false;
       }
       return $.prettyPhoto.open(img_src, elem.data('title'), '');
+    });
+    $(".details-map-wrapper .pp_close").click(function() {
+      $(this).parent().fadeOut();
+      $("#details-map").empty().fadeOut();
+      return $(".details-map-overlay").fadeOut();
+    });
+    return $("a.map-link").click(function() {
+      var elem, latitude, longitude;
+      $("#details-map, .details-map-wrapper, .details-map-overlay").fadeIn();
+      elem = $(this);
+      latitude = elem.attr("data-lat");
+      longitude = elem.attr("data-lon");
+      setTimeout(function() {
+        var eventData, mapOptions;
+        eventData = {
+          title: "Event title",
+          lat: latitude,
+          lon: longitude,
+          type: "party"
+        };
+        mapOptions = {
+          markers: [eventData],
+          mapCenter: new google.maps.LatLng(eventData.lat, eventData.lon),
+          targetElement: '#details-map'
+        };
+        return NOITEHOJE.webApp.googleMaps.setupMap(mapOptions);
+      }, 500);
+      return false;
     });
   });
   NOITEHOJE.webApp.eventDetails = (function() {
@@ -369,7 +397,7 @@
         details.find('a.photo-link').attr('href', p.flyer || p.venue.image || '/images/app/party-placeholder.png').data('title', p.title);
         details.find('.source-data').text(p.source);
         $('.show-event-description').click();
-        $('.map-link').attr("href", "http://maps.google.com.br/?ll=" + p.venue.location.geo_lat + "," + p.venue.location.geo_lon);
+        $('.map-link').attr("href", "http://maps.google.com.br/?ll=" + p.venue.location.geo_lat + "," + p.venue.location.geo_lon).attr("data-lat", p.venue.location.geo_lat).attr("data-lon", p.venue.location.geo_lon);
         return details.find('span.event-type-icon').removeClass('party').removeClass('show').addClass(p.evt_type);
       },
       closeDetailsPanel: function() {
@@ -395,7 +423,9 @@
       $(this).addClass('current');
       $('#details').find('p.description, .details-ppl-checkd-in, .details-comments').hide();
       if (current_tab === "show-event-description") {
-        return $('#details p.description').show();
+        if ($('#details p.description').text() !== "") {
+          return $('#details p.description').show();
+        }
       } else if (current_tab === "show-ppl-checkd-in") {
         return $('#details .details-ppl-checkd-in').show();
       } else if (current_tab === "show-comments") {

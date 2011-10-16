@@ -50,3 +50,32 @@ $ () ->
     img_src = elem.find('img').attr('src')
     return false if img_src == '/images/app/party-placeholder.png'
     $.prettyPhoto.open img_src, elem.data('title'), ''
+
+  $(".details-map-wrapper .pp_close").click () ->
+    $(this).parent().fadeOut()
+    $("#details-map").empty().fadeOut()
+    $(".details-map-overlay").fadeOut()
+
+  $("a.map-link").click () ->
+    $("#details-map, .details-map-wrapper, .details-map-overlay").fadeIn()
+
+    elem = $ this
+    latitude = elem.attr "data-lat"
+    longitude = elem.attr "data-lon"
+
+    setTimeout(() ->
+     # Set up event details map marker, center, etc.
+      eventData =
+        title: "Event title"
+        lat: latitude
+        lon: longitude
+        type: "party"
+      mapOptions =
+        markers: [ eventData ]
+        mapCenter: new google.maps.LatLng eventData.lat, eventData.lon
+        targetElement: '#details-map'
+
+      NOITEHOJE.webApp.googleMaps.setupMap mapOptions
+    , 500)
+
+    return false

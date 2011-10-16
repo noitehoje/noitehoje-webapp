@@ -49,20 +49,10 @@ NOITEHOJE.webApp.eventDetails = (() ->
 
     $('.show-event-description').click()
 
-    $('.map-link').attr("href", "http://maps.google.com.br/?ll=#{p.venue.location.geo_lat},#{p.venue.location.geo_lon}")
-
-    # Set up event details map marker, center, etc.
-    # eventData =
-    #   title: p.title
-    #   lat: p.venue.location.geo_lat
-    #   lon: p.venue.location.geo_lon
-    #   type: p.evt_type
-    # mapOptions =
-    #   markers: [ eventData ]
-    #   mapCenter: new google.maps.LatLng eventData.lat, eventData.lon
-    #   targetElement: '.details-map'
-
-    # NOITEHOJE.webApp.googleMaps.setupMap mapOptions
+    $('.map-link')
+      .attr("href", "http://maps.google.com.br/?ll=#{p.venue.location.geo_lat},#{p.venue.location.geo_lon}")
+      .attr("data-lat", p.venue.location.geo_lat)
+      .attr("data-lon", p.venue.location.geo_lon)
 
     details.find('span.event-type-icon').removeClass('party').removeClass('show').addClass p.evt_type
 
@@ -87,7 +77,7 @@ $ () ->
 
     $('#details').find('p.description, .details-ppl-checkd-in, .details-comments').hide()
     if current_tab == "show-event-description"
-      $('#details p.description').show()
+      $('#details p.description').show() unless $('#details p.description').text() == ""
     else if current_tab == "show-ppl-checkd-in"
       $('#details .details-ppl-checkd-in').show()
     else if current_tab == "show-comments"

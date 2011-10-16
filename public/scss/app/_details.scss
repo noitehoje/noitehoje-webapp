@@ -91,11 +91,6 @@ $nh:#E513ED;
     max-height:170px;
     margin-left:10px;
   }
-  .details-map {
-    height:190px;
-    clear:both;
-    border:1px solid darken($nh,25%);
-  }
   p.description, .details-ppl-checkd-in, .details-comments {
     clear:both;
     padding:10px;
@@ -192,5 +187,30 @@ $nh:#E513ED;
   p.description {
     background:#000;
     margin-bottom:20px;
+  }
+}
+.details-map-overlay {
+  opacity: 0.8;
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #000;
+  display: none;
+}
+.details-map-wrapper {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  margin: -172px 0 0 -300px;
+  width: 560px;
+  padding: 25px 20px 20px 20px;
+  background-color: #000;
+  #details-map {
+    display: none;
+    height:320px;
+    border:1px solid darken($nh,25%);
   }
 }
