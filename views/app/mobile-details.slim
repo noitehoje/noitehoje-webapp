@@ -1,0 +1,73 @@
+doctype html
+erb:
+  <!--[if IEMobile 7 ]>    <html class="no-js iem7"> <![endif]-->
+  <!--[if (gt IEMobile 7)|!(IEMobile)]><!--> <html class="no-js"> <!--<![endif]-->
+head
+  meta[charset="utf-8"]
+  title Tipo do evento + Nome do evento + Local do evento + (cidade do evento) · Noite Hoje
+  meta name="description" content=""
+  meta name="HandheldFriendly" content="True"
+  meta name="MobileOptimized" content="320"
+  meta name="viewport" content="width=device-width"
+  meta http-equiv="cleartype" content="on"
+  link rel="shortcut icon" href="/favicon.png"
+  meta name="msapplication-TileImage" content="img/touch/apple-touch-icon-144x144-precomposed.png"
+  meta name="msapplication-TileColor" content="#222222"
+  link rel="stylesheet" href="/mobile/css/normalize.css"
+  link rel="stylesheet" href="/mobile/css/main.css"
+  script src="/mobile/js/vendor/modernizr-2.6.2.min.js"
+body
+  #root
+    #header
+      .right
+        a.share[href='#'] Compartilhar
+      .logo N
+    #event-ID.event-details
+      ul.tabs
+        li.flyer.active
+          img[src='/mobile/img/flyer.png' alt='Flyer do nome do evento']
+        /
+          li.event-map
+            #event-map I SHOULD BE A MAP
+      //
+        ul.tab-controller
+          li.active
+            a.flyer[data-tab='flyer' href='#'] Flyer
+          li
+            a.map[data-tab='map' href='#'] Map
+      .event-details-info
+        h1.event-title Nome do evento
+        h3.event-date 28/12/12
+        h2.venue-name Local do evento
+        p.venue-address Endereço do local
+        ul.event-info-actions
+          li.venue-phone 51 3333 3333
+          li.venue-website
+            a[href='#' target='_blank'] website.com
+        p.event-description
+          | Descrição do evento. 
+          small.information-source
+            | Fonte: 
+            a[href='#link-to-original'] Last.fm
+    p.feedback
+      | Para sugestões, dúvidas, reclamações ou correções entre em contato pelo 
+      a[href='mailto:feedback@noitehoje.com.br' title='feedback@noitehoje.com.br'] feedback@noitehoje.com.br
+  .share-helper
+    | Compartilhe utilizando o seu navegador. =)
+  script src="/mobile/js/vendor/zepto.min.js"
+  script src="/mobile/js/helper.js"
+  // Google Analytics: change UA-XXXXX-X to be your site's ID.
+  //javascript:
+    var _gaq=[["_setAccount","UA-XXXXX-X"],["_trackPageview"]];
+    (function(d,t){var g=d.createElement(t),s=d.getElementsByTagName(t)[0];g.async=1;
+    g.src=("https:"==location.protocol?"//ssl":"//www")+".google-analytics.com/ga.js";
+    s.parentNode.insertBefore(g,s)}(document,"script"));
+  javascript:
+    $(function(){
+      $('.share').click(function(e){
+        e.preventDefault();
+        $('.share-helper').show();
+      });
+    });
+erb:
+  </html>
