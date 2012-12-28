@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'sinatra'
+gem 'thin'
 gem 'rake'
 gem 'builder'
 gem 'pony'
@@ -29,7 +30,6 @@ gem 'skittles', git: "git://github.com/felipecsl/skittles.git"#, :path => "~/Dat
 
 group :development do
   gem 'autotest'
-  gem 'thin'
 end
 
 group :test do
