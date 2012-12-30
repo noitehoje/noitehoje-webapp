@@ -36,7 +36,3 @@ group :test do
   gem 'rack-test'
   gem 'database_cleaner'
 end
-
-group :production do
-  gem 'therubyracer-heroku', '0.8.1.pre3'
-end
