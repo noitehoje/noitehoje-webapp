@@ -25,6 +25,8 @@ gem 'oauth'
 gem 'oauth2', '0.5.0'#, :path => "~/Data/Projects/oauth2"
 gem 'omniauth', :git => "git://github.com/felipecsl/omniauth.git"# :path => "~/Data/Projects/omniauth"
 gem 'skittles', git: "git://github.com/felipecsl/skittles.git"#, :path => "~/Data/Projects/skittles"
+gem 'libv8', '~> 3.11.8'
+gem 'therubyracer'
 
 group :development do
   gem 'autotest'
