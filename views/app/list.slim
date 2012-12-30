@@ -4,7 +4,7 @@ section#listings.small-list
   ul.events
     - @events.each do |s|
       li[style='display:none;']
-        a.vevent[id=s["_id"] href="/event/#{s['_id']}/#{s['slug']}" data-event-type=s["evt_type"]]
+        a.vevent[id=s["id"] href="/event/#{s['id']}/#{s['slug']}" data-event-type=s["evt_type"]]
           .photo-wrapper
             - if s["flyer"].present?
               img.photo[src=s["flyer"]]
@@ -13,7 +13,7 @@ section#listings.small-list
             - else
               div[class="#{s['evt_type']}-placeholder"]
           .event-info
-            h3.event-title.summary[id="event-id-#{s['_id']}"] #{s["title"]}
+            h3.event-title.summary[id="event-id-#{s['id']}"] #{s["title"]}
             - if s["start_date"].present?
               time.date.rdate.dtstart[datetime=s["start_date"]] #{s["relative_date"]}
           .venue-info

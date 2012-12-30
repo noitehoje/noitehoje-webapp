@@ -55,6 +55,7 @@ $ () ->
     $(this).parent().fadeOut()
     $("#details-map").empty().fadeOut()
     $(".details-map-overlay").fadeOut()
+    return false
 
   $("a.map-link").click () ->
     $("#details-map, .details-map-wrapper, .details-map-overlay").fadeIn()

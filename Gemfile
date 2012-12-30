@@ -7,7 +7,6 @@ gem 'pony'
 gem 'rack-flash'
 gem 'hoptoad_notifier'
 gem 'coffee-script'
-gem 'therubyracer-heroku', '0.8.1.pre3'
 gem 'slim'
 gem 'sass'
 gem 'heroku'
@@ -36,4 +35,8 @@ group :test do
   gem 'fakeweb'
   gem 'rack-test'
   gem 'database_cleaner'
+end
+
+group :production do
+  gem 'therubyracer-heroku', '0.8.1.pre3'
 end
