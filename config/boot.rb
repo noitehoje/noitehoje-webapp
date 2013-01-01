@@ -6,7 +6,6 @@ require "yaml"
 require "sinatra/base"
 require "open-uri"
 require "openssl"
-require "hoptoad_notifier"
 require "compass"
 require "sass"
 require "rest_client"
@@ -24,6 +23,5 @@ require "active_support/core_ext"
 require "rack/mobile-detect"
 require 'digest/md5'
 require 'omniauth'
-require 'skittles'
 require 'newrelic_rpm'
 require "#{File.dirname(__FILE__)}/custom_requires"

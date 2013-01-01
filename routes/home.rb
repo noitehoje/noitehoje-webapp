@@ -6,7 +6,6 @@ module NoiteHoje
     helpers Sinatra::NoiteHoje::Helpers
 
     use Rack::MobileDetect
-    use HoptoadNotifier::Rack if ENV['RACK_ENV'] != 'development'
 
     get '/home_wip' do
       slim :index

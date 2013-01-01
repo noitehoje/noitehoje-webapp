@@ -12,21 +12,6 @@ function getPosition(callback) {
             errorMsg: "Error: The Geolocation service failed."
         });
     },{ timeout: 5000 });
-  } 
-  else if (google.gears) { // Try Google Gears Geolocation
-    var geo = google.gears.factory.create('beta.geolocation');
-    geo.getCurrentPosition(function(position) {
-        callback({
-            location: new google.maps.LatLng(position.latitude,position.longitude),
-            provider: "Google Gears",
-            success: true
-        });
-    }, function() {
-        callback({
-            success: false,
-            errorMsg: "Error: The Geolocation service failed."
-        });
-    });
   }
   else {
     // Browser doesn't support Geolocation
@@ -36,7 +21,7 @@ function getPosition(callback) {
     });
   }
 }
- 
+
 function setupMap(data) {
     if(data.success) {
         var options = {
@@ -50,8 +35,8 @@ function setupMap(data) {
         map.setCenter(data.location);
 
         var marker = new google.maps.Marker({
-            position: data.location, 
-            map: map, 
+            position: data.location,
+            map: map,
             title: data.title
         });
 

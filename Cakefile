@@ -5,6 +5,7 @@ inJsLibFiles = [
   'public/js/gmaps-noitehojestyles'
   'public/js/jquery.prettyPhoto'
   'public/js/parseuri'
+  'public/js/geolocation'
   'public/js/app/history/json2'
   'public/js/app/history/amplify.store'
   'public/js/app/history/history.adapter.jquery'

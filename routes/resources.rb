@@ -3,7 +3,6 @@
 module NoiteHoje
   class Resources < Sinatra::Base
     set :views, 'views/../public/'
-    use HoptoadNotifier::Rack if ENV['RACK_ENV'] != 'development'
 
     # CoffeeScript
     get '/coffee/:name.js' do

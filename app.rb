@@ -17,7 +17,6 @@ module NoiteHoje
     use OmniAuth::Strategies::Foursquare, FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET
 
     use Rack::Flash
-    use HoptoadNotifier::Rack if ENV['RACK_ENV'] != 'development'
 
     use NoiteHoje::Resources
     use NoiteHoje::WebApp

@@ -36,24 +36,11 @@ GIT
       oa-oauth (= 0.3.0.rc1)
       oa-openid (= 0.3.0.rc1)
 
-GIT
-  remote: git://github.com/felipecsl/skittles.git
-  revision: 6a0bf6af416b24da02d66cc59cde017d7550792c
-  specs:
-    skittles (0.5.0)
-      hashie (~> 1.0.0)
-      mime-types (~> 1.16)
-      oauth2 (~> 0.5.0)
-      yajl-ruby (~> 0.8.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
-    ZenTest (4.6.1)
     activesupport (3.0.10)
     addressable (2.2.8)
-    autotest (4.4.6)
-      ZenTest (>= 4.4.1)
     builder (3.0.0)
     chunky_png (1.2.1)
     coffee-script (2.2.0)
@@ -64,11 +51,8 @@ GEM
       chunky_png (~> 1.2)
       fssm (>= 0.2.7)
       sass (~> 3.1)
-    daemons (1.1.4)
-    dalli (1.0.5)
     database_cleaner (0.6.7)
     diff-lcs (1.1.2)
-    eventmachine (0.12.10)
     execjs (1.2.4)
       multi_json (~> 1.0)
     fakeweb (1.3.0)
@@ -77,15 +61,11 @@ GEM
       multipart-post (~> 1.1)
       rack (~> 1.1)
     fssm (0.2.7)
-    hashie (1.0.0)
     heroku (2.6.1)
       launchy (>= 0.3.2)
       rest-client (~> 1.6.1)
       rubyzip
       term-ansicolor (~> 1.0.5)
-    hoptoad_notifier (2.4.11)
-      activesupport
-      builder
     html5-boilerplate (1.0.0)
       compass (>= 0.11.1)
     i18n (0.6.0)
@@ -152,10 +132,6 @@ GEM
     term-ansicolor (1.0.6)
     therubyracer (0.11.0)
       ref
-    thin (1.2.11)
-      daemons (>= 1.0.9)
-      eventmachine (>= 0.12.6)
-      rack (>= 1.0.0)
     tilt (1.3.2)
     treetop (1.4.10)
       polyglot
@@ -170,22 +146,18 @@ GEM
       simple_oauth (~> 0.1)
       simple_oauth (~> 0.1)
     tzinfo (0.3.29)
-    yajl-ruby (0.8.3)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   addressable
-  autotest
   builder
   coffee-script
   compass
-  dalli
   database_cleaner
   fakeweb
   heroku
-  hoptoad_notifier
   html5-boilerplate
   libv8 (~> 3.11.8)
   newrelic_ia
@@ -194,7 +166,7 @@ DEPENDENCIES
   oauth2 (= 0.5.0)
   omniauth!
   pony
-  rack (= 1.2.3)
+  rack
   rack-flash
   rack-mobile-detect
   rack-test
@@ -202,9 +174,7 @@ DEPENDENCIES
   rspec
   sass
   sinatra
-  skittles!
   slim
   therubyracer
-  thin
   twitter
   tzinfo

@@ -4,7 +4,6 @@ module NoiteHoje
   class Services < Sinatra::Base
     set :views, 'views/services'
     helpers Sinatra::NoiteHoje::Helpers
-    use HoptoadNotifier::Rack if ENV['RACK_ENV'] != 'development'
     include NoiteHoje::Users
 
     get '/services' do
