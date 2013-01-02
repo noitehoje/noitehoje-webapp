@@ -35,8 +35,8 @@ class ApiHelper
     JSON.parse post_endpoint("user/#{user_id}/add_service", service)
   end
 
-  def user_by_service service_provider, uid
-    JSON.parse get_endpoint("user?provider=#{service_provider}&uid=#{uid}")
+  def user_by_service service_provider, user_id
+    JSON.parse get_endpoint("user/#{user_id}?provider=#{service_provider}")
   end
 
   private

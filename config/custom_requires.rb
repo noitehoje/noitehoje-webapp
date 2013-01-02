@@ -9,7 +9,6 @@ require "#{base_dir}/config/environment/#{env}"
 require "#{base_dir}/config/initializers"
 
 require "#{base_dir}/config/config"
-require "#{base_dir}/http"
 
 # Routes
 require "#{base_dir}/routes/helpers"
