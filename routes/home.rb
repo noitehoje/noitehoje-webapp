@@ -7,7 +7,7 @@ module NoiteHoje
 
     use Rack::MobileDetect
 
-    get '/home_wip' do
+    get '/home' do
       slim :index
     end
   end

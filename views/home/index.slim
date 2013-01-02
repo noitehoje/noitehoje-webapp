@@ -1,14 +1,59 @@
-header#header
-  == slim :header
-section#main
-  == slim :showcase
-  aside
-    .wrapper
-      .left-column
-        == slim :who_we_are
-        == slim :twitter_feed
-      == slim :features
-      == slim :events_map
-      .clear
-footer#footer
-  == slim :footer
+header
+  .logo Noite Hoje
+  nav
+    a[href='#sobre'] Sobre
+    a[href='#blog'] Blog
+    a[href='#time'] Time
+    a[href='#codigo'] GitHub
+    a[href='#suporte'] Suporte
+    a[href='#termos'] Termos de Uso
+    a[href='#contato'] Contato
+
+#showcase
+  h1 Noite Hoje
+  h2 O guia para shows e festas de sua região
+  .call-to-action
+    //
+      a[href='#']
+        | iPhone
+    img[src='images/home/showcase/iphone.png']
+    //
+      a[href='#']
+        | iPad
+        img[src='images/home/showcase/ipad.png']
+      a[href='#']
+        | Google Play
+        img[src='images/home/showcase/android.png']
+      a[href='#']
+        | Lançar a versão web
+        img[src='images/home/showcase/web.png']
+
+#featured-events
+  - featured_events = ['Foo', 'Bar', 'Baz']
+  ul
+    - featured_events.each do |event|
+      li = event
+
+#team
+  - team = ['Felipe Lima', 'Otávio Cordeiro', 'Leo Tartari', 'Ico Portela', 'Vitor Baptista', 'Lúcio Maciel'].sort
+  ruby:
+    def photo(name)
+      "<img src='images/home/team/#{name.gsub(' ', '-').gsub('á', 'a').gsub('ú','u').downcase }.jpg' width='128'>"
+    end
+  ul
+    - team.each do |player|
+      li
+        == photo(player)
+        = player
+
+#media-clipping
+  p As seen on:
+  ul
+    - media = ['Foo', 'Bar', 'Baz']
+    - media.each do |media|
+      li = media
+
+footer
+  button Twitter
+  button Like
+  .logo Noite Hoje

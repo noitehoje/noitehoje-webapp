@@ -1,0 +1,36 @@
+body {
+  background: black url(/images/home/background.jpg) no-repeat fixed left top;
+  background-size: cover;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: purple;
+  width: 100%;
+}
+
+#featured-events,
+#team,
+#media-clipping,
+footer {
+  background: white;
+}
+
+
+#team {
+  img {
+    border-radius: 50%;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 4em 0;
+  }
+  li {
+    display: inline-block;
+    width: 32%;
+    height: 256px;
+  }
+}
