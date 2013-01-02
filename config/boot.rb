@@ -1,6 +1,5 @@
 require "rubygems"
 require "bundler/setup"
-require 'rspec/core/rake_task'
 require "tilt"
 require "yaml"
 require "sinatra/base"
