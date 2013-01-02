@@ -65,6 +65,12 @@ module NoiteHoje
       redirect "http://api.noitehoje.com.br#{request.env["REQUEST_URI"]}"
     end
 
+
+    get '/mobile-details' do
+      slim :'mobile-details', :layout => false
+    end
+
+
     def set_up_events city, type
       @events = api_helper.all_events
       @cities = App.config.supported_cities.sort_by {|c| c[:name] }
