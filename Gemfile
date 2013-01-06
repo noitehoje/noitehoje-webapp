@@ -23,6 +23,7 @@ gem 'oauth2', '0.5.0'#, :path => "~/Data/Projects/oauth2"
 gem 'omniauth', :git => "git://github.com/felipecsl/omniauth.git"# :path => "~/Data/Projects/omniauth"
 gem 'libv8', '~> 3.11.8'
 gem 'therubyracer'
+gem 'active_support'
 
 group :development, :test do
   gem 'rspec'
