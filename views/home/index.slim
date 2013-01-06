@@ -40,7 +40,13 @@ header
 
 #open-source
   .wrapper
-    
+    .giant-icon.social 
+    p Código dos clientes no GitHub:
+    ul
+      - platforms = ['iPhone', 'iPad', 'web', 'Android'].sort
+      - platforms.each do |platform|
+        li
+          a[href='#'] = platform
 
 footer
   .wrapper

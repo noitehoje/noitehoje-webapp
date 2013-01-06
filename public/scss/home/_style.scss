@@ -119,7 +119,6 @@ footer {
 #team {
   padding-top: 100px;
   background: url(/images/home/texture.png) repeat scroll left top;
-  border-bottom: 1px solid #181818;
   img {
     width: 96px;
     height: 96px;
@@ -147,6 +146,44 @@ footer {
     &:hover {
       color: #09f;
     }
+  }
+}
+#open-source {
+  border-top: 1px solid #CCC;
+  border-bottom: 1px solid #181818;
+  background: #DDD;
+  background: #e1e1e1;
+  background: -moz-linear-gradient(top,  #e1e1e1 0%, #c1c1c1 100%);
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e1e1e1), color-stop(100%,#c1c1c1));
+  background: -webkit-linear-gradient(top,  #e1e1e1 0%,#c1c1c1 100%);
+  background: -o-linear-gradient(top,  #e1e1e1 0%,#c1c1c1 100%);
+  background: -ms-linear-gradient(top,  #e1e1e1 0%,#c1c1c1 100%);
+  background: linear-gradient(to bottom,  #e1e1e1 0%,#c1c1c1 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e1e1e1', endColorstr='#c1c1c1',GradientType=0 );
+  .wrapper {
+    position: relative;
+    overflow: hidden;
+    padding: 100px 0;
+  }
+  p,
+  ul {
+    margin-left: 180px;
+  }
+  .giant-icon {
+    font-size: 50em;
+    position: absolute;
+    top: 140px;
+    right: 0;
+    line-height: 0;
+    color: #BBB;
+    text-shadow: #DDD 0 2px 0, #AAA 0 -2px 0;
+  }
+  ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  li {
+    display: inline-block;
   }
 }
 footer {
