@@ -38,6 +38,7 @@ GIT
 
 GEM
   remote: http://rubygems.org/
+  remote: http://rubyforge.org/
   specs:
     activesupport (3.0.10)
     addressable (2.2.8)
