@@ -38,9 +38,7 @@ GIT
 
 GEM
   remote: http://rubygems.org/
-  remote: http://rubyforge.org/
   specs:
-    activesupport (3.0.10)
     addressable (2.2.8)
     builder (3.0.0)
     chunky_png (1.2.1)
@@ -124,7 +122,6 @@ GEM
     rubyntlm (0.1.1)
     rubyzip (0.9.4)
     sass (3.1.7)
-    simple_oauth (0.2.0)
     sinatra (1.2.6)
       rack (~> 1.1)
       tilt (>= 1.2.2, < 2.0)
@@ -143,15 +140,6 @@ GEM
     treetop (1.4.10)
       polyglot
       polyglot (>= 0.3.1)
-    twitter (2.2.1)
-      activesupport (>= 2.3.9, < 4)
-      activesupport (>= 2.3.9, < 4)
-      faraday (~> 0.7)
-      faraday (~> 0.7)
-      multi_json (~> 1.0)
-      multi_json (~> 1.0)
-      simple_oauth (~> 0.1)
-      simple_oauth (~> 0.1)
     tzinfo (0.3.29)
 
 PLATFORMS
@@ -184,5 +172,4 @@ DEPENDENCIES
   slim
   therubyracer
   thin
-  twitter
   tzinfo
