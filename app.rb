@@ -16,14 +16,12 @@ module NoiteHoje
     use OmniAuth::Strategies::Twitter, TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET
     use OmniAuth::Strategies::Foursquare, FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET
 
-    use Rack::Flash
+    register Sinatra::Flash
 
     use NoiteHoje::Resources
     use NoiteHoje::WebApp
     use NoiteHoje::Home
     use NoiteHoje::Services
-
-    use NewRelic::Rack::DeveloperMode if ENV['RACK_ENV'] == 'development'
 
     enable :sessions
     enable :raise_errors
