@@ -1,59 +1,63 @@
 header
-  .logo Noite Hoje
-  nav
-    a[href='#sobre'] Sobre
-    a[href='#blog'] Blog
-    a[href='#time'] Time
-    a[href='#codigo'] GitHub
-    a[href='#suporte'] Suporte
-    a[href='#termos'] Termos de Uso
-    a[href='#contato'] Contato
+  .wrapper
+    h1.logo
+      a[href='/']
+        img[src='/images/home/logo.png' alt='Noite Hoje']
+    nav
+      a[href='#sobre'] Sobre
+      a[href='#blog'] Blog
+      a[href='#time'] Quem somos
+      a[href='#codigo'] GitHub
+      a[href='#contato'] Contato
 
 #showcase
-  h1 Noite Hoje
-  h2 O guia para shows e festas de sua região
-  .call-to-action
-    //
-      a[href='#']
-        | iPhone
-    img[src='images/home/showcase/iphone.png']
-    //
-      a[href='#']
-        | iPad
-        img[src='images/home/showcase/ipad.png']
-      a[href='#']
-        | Google Play
-        img[src='images/home/showcase/android.png']
-      a[href='#']
-        | Lançar a versão web
-        img[src='images/home/showcase/web.png']
-
-#featured-events
-  - featured_events = ['Foo', 'Bar', 'Baz']
-  ul
-    - featured_events.each do |event|
-      li = event
+  .wrapper
+    img.iphone[src='images/home/showcase/iphone.png']
+    .showcase-content
+      h2 O guia para shows e festas mais completo de sua região
+      p O Noite Hoje é o guia mais completo de shows e festas que ocorrem em sua região.
+      p O melhor de tudo? É grátis. Baixe já!
+      .call-to-action
+        a[href='#']
+          img[src='/images/home/badge_ios.png']
+        a[href='#']
+          img[src='/images/home/badge_android.png']
 
 #team
-  - team = ['Felipe Lima', 'Otávio Cordeiro', 'Leo Tartari', 'Ico Portela', 'Vitor Baptista', 'Lúcio Maciel'].sort
-  ruby:
-    def photo(name)
-      "<img src='images/home/team/#{name.gsub(' ', '-').gsub('á', 'a').gsub('ú','u').downcase }.jpg' width='128'>"
-    end
-  ul
-    - team.each do |player|
-      li
-        == photo(player)
-        = player
+  .wrapper
+    ul
+      - @team.each do |player|
+        li
+          == photo(player[:name])
+          br
+          = player[:name]
+          br
+          .social
+            - if player[:twitter] != ''
+              == twitter_link(player[:twitter])
+            - if player[:github] != ''
+              == github_link(player[:github])
 
-#media-clipping
-  p As seen on:
-  ul
-    - media = ['Foo', 'Bar', 'Baz']
-    - media.each do |media|
-      li = media
+#open-source
+  .wrapper
+    
 
 footer
-  button Twitter
-  button Like
-  .logo Noite Hoje
+  .wrapper
+    .footer-navigation
+      a.button[href='#contato'] Entre em contato!
+    ul.social
+      li
+        a.twitter[href='#'] 
+      li
+        a.facebook[href='#'] 
+      li
+        a.google-plus[href='#'] 
+      li
+        a.pinterest[href='#'] 
+      li
+        a.github[href='#'] 
+    .colophon
+      img[src='/images/home/footer-logo.png' alt='Noite Hoje']
+      p.legal-info
+        | Copyright © #{Time.new.year} Noite Hoje · Todos os direitos reservados · <a href='#'>Política de Privacidade</a> · <a href='#'>Termos de Uso</a>
