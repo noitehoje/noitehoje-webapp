@@ -13,34 +13,58 @@ module NoiteHoje
           name: 'Felipe Lima',
           role: 'iOS & Backend Developer',
           twitter: 'felipecsl',
-          github: 'felipecsl'
+          github: 'felipecsl',
+          linkedin: 'felipecsl'
         },{
           name: 'Otávio Cordeiro',
           role: 'iOS Developer',
           twitter: 'otaviocc',
-          github: 'otaviocc'
+          github: 'otaviocc',
+          linkedin: 'otaviocc'
         },{
           name: 'Leo Tartari',
           role: 'Designer & Frontend Developer',
           twitter: 'leotartari',
-          github: 'ltartari'
+          github: 'ltartari',
+          linkedin: 'leotartari'
         },{
           name: 'Ico Portela',
           role: 'Designer',
           twitter: 'icoportela',
-          github: ''
+          github: '',
+          linkedin: 'icoportela'
         },{
           name: 'Lúcio Maciel',
           role: 'Android Developer',
           twitter: 'luciofm',
-          github: 'luciofm'
+          github: 'luciofm',
+          linkedin: 'luciofm'
         },{
           name: 'Vitor Baptista',
           role: 'Backend Developer',
           twitter: 'vitorbaptista',
-          github: 'vitorbaptista'
+          github: 'vitorbaptista',
+          linkedin: 'vitorbaptista'
         }
       ].sort_by { |team| team[:name]}
+      @repos = [
+        {
+          name: 'iPhone',
+          url: ''
+        },{
+          name: 'iPad',
+          url: ''
+        },{
+          name: 'Web',
+          url: ''
+        },{
+          name: 'Android',
+          url: 'soon'
+        },{
+          name: 'Noite Hoje Gem',
+          url: ''
+        }
+      ].sort_by {|repo| repo[:name]}
       slim :index
     end
     def photo(name)
@@ -48,10 +72,13 @@ module NoiteHoje
       "<img src='images/home/team/#{name_to_slug}.jpg'>"
     end
     def github_link(username)
-      "<a href='http://github.com/#{username}' target='_blank'></a>"
+      "<a href='http://github.com/#{username}' target='_blank'>&#62208;</a>"
     end
     def twitter_link(username)
-      "<a href='http://twitter.com/#{username}' target='_blank'></a>"
+      "<a href='http://twitter.com/#{username}' target='_blank'>&#62217;</a>"
+    end
+    def linkedin_link(username)
+      "<a href='http://www.linkedin.com/in/#{username}' target='_blank'>&#62232;</a>"
     end
   end
 end

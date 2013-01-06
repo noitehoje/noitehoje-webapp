@@ -10,7 +10,6 @@
   font-weight: normal;
   font-style: normal;
 }
-
 a {
   -moz-transition: color .25s ease-in;
   -webkit-transition: color .25s ease-in;
@@ -47,7 +46,7 @@ header {
     }
     nav,
     nav a {
-      padding: 10px;
+      padding: 10px 14px;
     }
   }
   h1.logo {
@@ -64,7 +63,7 @@ header {
   }
   nav,
   nav a {
-    padding: 18px;
+    padding: 18px 14px;
     -moz-transition: padding .25s ease-in;
     -webkit-transition: padding .25s ease-in;
     transition: padding .25s ease-in;
@@ -107,7 +106,10 @@ footer {
     float: right;
     margin-top: 190px;
     width: 400px;
-    margin-right: 150px;
+    margin-right: 100px;
+    a {
+      margin: 0 .5em 0 0;
+    }
   }
   .iphone {
     position: absolute;
@@ -115,17 +117,49 @@ footer {
     left: 100px;
     height: 540px;
   }
+  .call-to-action {
+    list-style-type: none;
+    background: #2D053D;
+    padding: 1.5em 1em 1em 2em;
+    overflow: hidden;
+    border-radius: 4px;
+    li {
+      width: 50%;
+      float: left;
+      margin-bottom: 1em;
+    }
+    a {
+      color: white;
+      text-decoration: none;
+    }
+  }
+  .label {
+    &.new {
+      background: #E513ED;
+      color: white;
+      padding: .05em .5em;
+      font-size: smaller;
+      border-radius: 2em;
+      vertical-align: top;
+    }
+  }
 }
 #team {
-  padding-top: 100px;
+  padding-top: 180px;
   background: url(/images/home/texture.png) repeat scroll left top;
   img {
     width: 96px;
     height: 96px;
-    box-shadow: #fff 0 0 0 6px, #BBB 0 0 1px 8px;
+    box-shadow: #fff 0 0 0 6px, #CCC 0 0 5px 7px;
     border-radius: 50%;
     display: inline-block;
     margin-bottom: 16px;
+  }
+  .name,
+  .role {
+    text-shadow: #FFF 0 1px 0;
+    display: block;
+    line-height: 1.5;
   }
   ul {
     list-style-type: none;
@@ -134,15 +168,18 @@ footer {
   }
   li {
     display: inline-block;
-    width: 15%;
-    height: 256px;
+    width: 16.32117%;
+    vertical-align: top;
     text-align: center;
   }
   .social a {
     text-decoration: none;
     color: #444;
-    font-size: 3.5em;
-    line-height: .5;
+    font-size: 2.25em;
+    line-height: 1;
+    margin: 0 .05em;
+    vertical-align: middle;
+    text-shadow: #FFF 0 1px 0;
     &:hover {
       color: #09f;
     }
@@ -163,31 +200,51 @@ footer {
   .wrapper {
     position: relative;
     overflow: hidden;
-    padding: 100px 0;
+    padding: 90px 0;
   }
   p,
   ul {
-    margin-left: 180px;
+    margin-left: 110px;
+    width: 200px;
   }
   .giant-icon {
-    font-size: 50em;
+    font-size: 80em;
     position: absolute;
-    top: 140px;
-    right: 0;
+    top: 280px;
+    right: -50px;
     line-height: 0;
     color: #BBB;
-    text-shadow: #DDD 0 2px 0, #AAA 0 -2px 0;
+    text-shadow: #EEE 0 -1px 0, #999 0 1px 0;
   }
   ul {
     list-style-type: none;
     padding: 0;
   }
   li {
-    display: inline-block;
+    display: block;
+    margin: 0 0 22px;
+  }
+  a.repo {
+    box-shadow: #fff 0 1px 0 inset, #fff 0 1px 0;
+    border-radius: 4px;
+    border: 1px solid #BBB;
+    background: #DDD;
+    color: #444;
+    text-shadow: #fff 0 1px 0;
+    font-weight: bold;
+    padding: 4px 10px;
+    text-decoration: none;
+    -moz-transition: background .15s ease-in;
+    -webkit-transition: background .15s ease-in;
+    transition: background .15s ease-in;
+    &:hover {
+      background: #EEE;
+      border-color: #999;
+    }
   }
 }
 footer {
-  padding: 2em 0;
+  padding: 3em 0 5em;
   background: #181818 url(/images/home/footer-background.jpg) repeat scroll left top;
   color: white;
   border-top: 1px solid #383838;

@@ -4,10 +4,10 @@ header
       a[href='/']
         img[src='/images/home/logo.png' alt='Noite Hoje']
     nav
-      a[href='#sobre'] Sobre
+      a[href='#about'] Sobre
+      a[href='#team'] Quem somos
       a[href='#blog'] Blog
-      a[href='#time'] Quem somos
-      a[href='#codigo'] GitHub
+      a[href='#open-source'] GitHub
       a[href='#contato'] Contato
 
 #showcase
@@ -17,36 +17,50 @@ header
       h2 O guia para shows e festas mais completo de sua região
       p O Noite Hoje é o guia mais completo de shows e festas que ocorrem em sua região.
       p O melhor de tudo? É grátis. Baixe já!
-      .call-to-action
-        a[href='#']
-          img[src='/images/home/badge_ios.png']
-        a[href='#']
-          img[src='/images/home/badge_android.png']
+      ul.call-to-action
+        li
+          a[href='#']
+            | iPhone
+            img[src='/images/home/badge_ios.png']
+        li
+          a[href='#']
+            | iPad <span class='label new'>novo</span>
+            img[src='/images/home/badge_ios.png']
+        li
+          a[href='#']
+            | Android
+            img[src='/images/home/badge_android.png']
+        li
+          a[href="http://noitehoje.com.br/" target='_top']
+            | Web
+            img[src='/images/home/badge_webapp.png']
 
 #team
   .wrapper
+    p Esses são os responsáveis por manter o Noite Hoje funcionando!
     ul
       - @team.each do |player|
         li
           == photo(player[:name])
-          br
-          = player[:name]
-          br
+          strong.name = player[:name]
           .social
             - if player[:twitter] != ''
               == twitter_link(player[:twitter])
             - if player[:github] != ''
               == github_link(player[:github])
+            - if player[:linkedin] != ''
+              == linkedin_link(player[:linkedin])
+          small.role = player[:role]
 
 #open-source
   .wrapper
-    .giant-icon.social 
-    p Código dos clientes no GitHub:
+    .giant-icon.social &#62209;
+    p Meh tattooed +1 fixie non high life. Wolf cliche fanny pack.
+    p Códigos no GitHub:
     ul
-      - platforms = ['iPhone', 'iPad', 'web', 'Android'].sort
-      - platforms.each do |platform|
+      - @repos.each do |repo|
         li
-          a[href='#'] = platform
+          a.repo[href=repo[:url]] = repo[:name]
 
 footer
   .wrapper
@@ -54,15 +68,11 @@ footer
       a.button[href='#contato'] Entre em contato!
     ul.social
       li
-        a.twitter[href='#'] 
+        a.twitter[href='http://twitter.com/noitehoje'] &#62218;
       li
-        a.facebook[href='#'] 
+        a.facebook[href='http://facebook.com/noitehoje'] &#62221;
       li
-        a.google-plus[href='#'] 
-      li
-        a.pinterest[href='#'] 
-      li
-        a.github[href='#'] 
+        a.github[href='http://github.com/noitehoje'] &#62209;
     .colophon
       img[src='/images/home/footer-logo.png' alt='Noite Hoje']
       p.legal-info
