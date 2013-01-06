@@ -104,7 +104,7 @@ footer {
   .showcase-content {
     color: white;
     float: right;
-    margin-top: 190px;
+    margin-top: 160px;
     width: 400px;
     margin-right: 100px;
     a {
@@ -117,16 +117,28 @@ footer {
     left: 100px;
     height: 540px;
   }
+  .call-to-action-wrapper {
+    margin-top: 50px;
+    position: relative;
+    .app-icon {
+      position: absolute;
+      right: 10px;
+      top: -50px;
+      border-radius: 10px;
+    }
+  }
   .call-to-action {
     list-style-type: none;
     background: #2D053D;
-    padding: 1.5em 1em 1em 2em;
+    padding: 1.5em 1em 1.5em 2em;
     overflow: hidden;
     border-radius: 4px;
     li {
       width: 50%;
       float: left;
-      margin-bottom: 1em;
+      &.first-row {
+        margin-bottom: 1.5em;
+      }
     }
     a {
       color: white;

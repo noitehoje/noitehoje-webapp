@@ -17,23 +17,25 @@ header
       h2 O guia para shows e festas mais completo de sua região
       p O Noite Hoje é o guia mais completo de shows e festas que ocorrem em sua região.
       p O melhor de tudo? É grátis. Baixe já!
-      ul.call-to-action
-        li
-          a[href='#']
-            | iPhone
-            img[src='/images/home/badge_ios.png']
-        li
-          a[href='#']
-            | iPad <span class='label new'>novo</span>
-            img[src='/images/home/badge_ios.png']
-        li
-          a[href='#']
-            | Android
-            img[src='/images/home/badge_android.png']
-        li
-          a[href="http://noitehoje.com.br/" target='_top']
-            | Web
-            img[src='/images/home/badge_webapp.png']
+      .call-to-action-wrapper
+        img.app-icon[src='/images/home/app-icon.png' alt='Noite Hoje App Icon']
+        ul.call-to-action
+          li.first-row
+            a[href='#']
+              | iPhone
+              img[src='/images/home/badge_ios.png']
+          li.first-row
+            a[href='#']
+              | iPad <span class='label new'>novo</span>
+              img[src='/images/home/badge_ios.png']
+          li
+            a[href='#']
+              | Android
+              img[src='/images/home/badge_android.png']
+          li
+            a[href="http://noitehoje.com.br/" target='_top']
+              | Web
+              img[src='/images/home/badge_webapp.png']
 
 #team
   .wrapper
