@@ -96,26 +96,63 @@ footer {
 }
 
 #showcase {
-  background: url(/images/home/party-b.jpg) repeat-x scroll center top;
-  height: 520px;
+  .iphone-section {
+    background: url(/images/home/party-b.jpg) repeat-x fixed center top;
+    height: 520px;
+  }
+  .ipad-section {
+    background: url(/images/home/party-a.jpg) repeat-x fixed center top;
+    height: 620px;
+  }
+  .android-section {
+    background: url(/images/home/show-a.jpg) repeat-x fixed center top;
+    height: 520px;
+  }
   .wrapper {
     position: relative;
   }
-  .showcase-content {
+  .iphone-content {
     color: white;
     float: right;
     margin-top: 160px;
     width: 400px;
     margin-right: 100px;
-    a {
-      margin: 0 .5em 0 0;
-    }
+  }
+  .ipad-content {
+    float: left;
+    width: 210px;
+    padding: 20px;
+    background: rgba(0,0,0,.75);
+    margin-top: 230px;
+    margin-left: 110px;
+    color: white;
+    border-radius: 4px;
+  }
+  .android-content {
+    float: right;
+    width: 310px;
+    padding: 20px;
+    margin-top: 230px;
+    margin-right: 150px;
+    background: rgba(0,0,0,.85);
+    border-radius: 4px;
+    color: white;
   }
   .iphone {
     position: absolute;
     top: 120px;
     left: 100px;
     height: 540px;
+  }
+  .ipad {
+    position: absolute;
+    right: -130px;
+    top: 130px;
+  }
+  .android {
+    position: absolute;
+    left: 50px;
+    top: 130px;
   }
   .call-to-action-wrapper {
     margin-top: 50px;
