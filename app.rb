@@ -20,7 +20,6 @@ module NoiteHoje
 
     use NoiteHoje::Resources
     use NoiteHoje::WebApp
-    use NoiteHoje::Home
     use NoiteHoje::Services
 
     enable :sessions
