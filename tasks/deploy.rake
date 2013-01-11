@@ -5,11 +5,11 @@ namespace :deploy do
   PRODUCTION_APP = 'noitehoje-webapp'
 
   desc 'Deploy app to staging'
-  task :staging           => [:set_staging_app, :off, :push, :migrate, :on]
+  task :staging           => [:set_staging_app, :off, :push, :on]
   task :staging_rollback  => [:set_staging_app, :off, :push_previous, :restart, :on]
 
   desc 'Deploy app to production'
-  task :production            => [:set_production_app, :off, :push, :migrate, :on, :tag]
+  task :production            => [:set_production_app, :off, :push, :on, :tag]
   task :production_rollback   => [:set_production_app, :off, :push_previous, :restart, :on]
 
   task :set_staging_app do
@@ -35,11 +35,6 @@ namespace :deploy do
     puts "Tagging release as '#{release_name}'"
     puts `git tag -a #{release_name} -m 'Tagged release'`
     puts `git push --tags git@heroku.com:#{APP}.git`
-  end
-
-  task :migrate do
-    puts 'Running database migrations ...'
-    puts `heroku run rake db:migrate --app #{APP}`
   end
 
   task :off do
