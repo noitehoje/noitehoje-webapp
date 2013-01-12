@@ -1,12 +1,10 @@
 # coding: utf-8
 module NoiteHoje
   class Config
-    attr_reader :api_keys, :supported_cities
+    attr_reader :api_key, :supported_cities
 
     def initialize
-      # 1. iPhone app key
-      # 2. webapp key
-      @api_keys = [APP_IPHONE_KEY, API_WEBAPP_KEY]
+      @api_key = API_KEY
       @supported_cities = []
       add_supported_cities "Porto Alegre", "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba", "Florianópolis"
     end

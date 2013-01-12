@@ -44,7 +44,7 @@ module Sinatra
       end
 
       def api_helper
-        @api_helper ||= ApiHelper.new(::NoiteHoje::App.config.api_keys.first)
+        @api_helper ||= ApiHelper.new(::NoiteHoje::App.config.api_key)
       end
     end
   end
