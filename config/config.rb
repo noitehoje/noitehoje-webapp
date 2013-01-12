@@ -6,7 +6,7 @@ module NoiteHoje
     def initialize
       # 1. iPhone app key
       # 2. webapp key
-      @api_keys = ['crEjew8r', 'saQ8jFnb']
+      @api_keys = [APP_IPHONE_KEY, API_WEBAPP_KEY]
       @supported_cities = []
       add_supported_cities "Porto Alegre", "São Paulo", "Rio de Janeiro", "Belo Horizonte", "Curitiba", "Florianópolis"
     end
