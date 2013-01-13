@@ -10,7 +10,7 @@ module NoiteHoje
       :expire_after => 1.month,                     # expire cookie
       :secure       => false,                       # force https if true
       :httponly     => true,                        # a measure against XSS attacks, prevent client side scripts from accessing the cookie
-      :secret      => 'cb8e1ac9dd5f4d08974f9f4d74abb45a923cab8b6cc3c59829ce6b61280160c4c18b0a721c26e0b4f43c1195875902'
+      :secret      => COOKIE_SECRET
 
     use OmniAuth::Strategies::Facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
     use OmniAuth::Strategies::Twitter, TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET
