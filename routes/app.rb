@@ -5,6 +5,8 @@ module NoiteHoje
     set :views, 'views/app'
     helpers Sinatra::NoiteHoje::Helpers
 
+    register Sinatra::Flash
+
     use Rack::MobileDetect
 
     get '/geteventjson/:id' do

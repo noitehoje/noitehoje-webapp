@@ -16,8 +16,6 @@ module NoiteHoje
     use OmniAuth::Strategies::Twitter, TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET
     use OmniAuth::Strategies::Foursquare, FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET
 
-    register Sinatra::Flash
-
     use NoiteHoje::Resources
     use NoiteHoje::WebApp
     use NoiteHoje::Services
