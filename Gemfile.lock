@@ -67,9 +67,6 @@ GEM
       multipart-post (~> 1.1)
       rack (~> 1.1)
     fssm (0.2.9)
-    html5-boilerplate (2.1.0)
-      compass
-      compass-h5bp
     i18n (0.6.1)
     libv8 (3.11.8.13)
     mail (2.5.3)
@@ -152,9 +149,9 @@ DEPENDENCIES
   builder
   coffee-script
   compass
+  compass-h5bp
   database_cleaner
   fakeweb
-  html5-boilerplate
   libv8 (~> 3.11.8)
   newrelic_ia
   newrelic_rpm

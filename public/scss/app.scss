@@ -1,11 +1,11 @@
 @import "compass/css3";
-@import "html5-boilerplate";
+@import "h5bp";
 @import "app/utilities";
 @import "app/app-sprites";
 @import "app/details";
 @import "app/modal";
 @import "app/pretty_photo";
-@include html5-boilerplate;
+@include h5bp-normalize;
 $legacy-support-for-ie: true;
 $nh:#E513ED;
 .hide {
