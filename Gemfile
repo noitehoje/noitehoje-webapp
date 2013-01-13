@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'sinatra'
+gem 'tux'
 gem 'thin'
 gem 'rake'
 gem 'builder'

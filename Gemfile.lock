@@ -43,6 +43,7 @@ GEM
       activesupport (= 3.0.0)
     activesupport (3.0.0)
     addressable (2.2.8)
+    bond (0.4.3)
     builder (3.1.4)
     chunky_png (1.2.7)
     coffee-script (2.2.0)
@@ -104,6 +105,14 @@ GEM
     ref (1.0.2)
     rest-client (1.6.7)
       mime-types (>= 1.16)
+    ripl (0.7.0)
+      bond (~> 0.4.2)
+    ripl-multi_line (0.3.0)
+      ripl (>= 0.3.6)
+    ripl-rack (0.2.0)
+      rack (>= 1.0)
+      rack-test (>= 0.5)
+      ripl (>= 0.3.5)
     rspec (2.12.0)
       rspec-core (~> 2.12.0)
       rspec-expectations (~> 2.12.0)
@@ -138,6 +147,11 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
+    tux (0.3.0)
+      ripl (>= 0.3.5)
+      ripl-multi_line (>= 0.2.4)
+      ripl-rack (>= 0.2.0)
+      sinatra (>= 1.2.1)
     tzinfo (0.3.35)
 
 PLATFORMS
@@ -170,4 +184,5 @@ DEPENDENCIES
   slim
   therubyracer
   thin
+  tux
   tzinfo
