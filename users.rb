@@ -2,10 +2,15 @@
 module NoiteHoje
   module Users
     def create_new_account user_hash
+      p user_hash
+
       new_user = api_helper.new_user(
-        name: user_hash[:name],
+        first_name: user_hash[:name].split.first,
+        last_name: user_hash[:name].split[1..-1].join(' '),
         email: user_hash[:email],
-        phone: user_hash[:phone],
+        provider: 'facebook',
+        uid: user_hash[:uid],
+        token: user_hash[:token],
         image: user_hash[:image])
 
       if new_user['error'].present?
@@ -14,24 +19,10 @@ module NoiteHoje
         return
       end
 
-      new_service = api_helper.add_service(
-        new_user['_id'], {
-          provider: user_hash[:provider],
-          uid: user_hash[:uid],
-          uname: user_hash[:name],
-          uemail: user_hash[:email]
-        })
-
-      if new_service['error'].present?
-        flash[:error] = 'Desculpe, ocorreu um erro ao associar o serviço a sua conta.'
-        #TODO: Log the error
-        return
-      end
-
       # signin existing user
       # in the session his user id and the service id used for signing in is stored
-      session[:user_id] = new_user['_id']
-      session[:service_id] = new_service['_id']
+      session[:user_id] = new_user['id']
+      session[:service] = 'facebook'
     end
 
     def create_authhash omniauth, service
@@ -44,6 +35,7 @@ module NoiteHoje
         set_authhash_value :uid,      omniauth['extra']['user_hash']['id']
         set_authhash_value :image,    omniauth['extra']['user_hash']['image']
         set_authhash_value :provider, omniauth['provider']
+        set_authhash_value :token,    omniauth['credentials']['token']
       elsif service == 'foursquare'
         set_authhash_value :email,    omniauth['extra']['user_hash']['contact']['email']
         set_authhash_value :name,     omniauth['user_info']['name']

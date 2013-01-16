@@ -29,12 +29,12 @@ h1#logo[title='Noite Hoje · O melhor guia de Festas e Shows da sua cidade!'] No
           - unless user_is_connected_to_service? 'facebook'
             li.facebook
               a[href='/auth/facebook' title='Conectar com Facebook'] Conectar com Facebook
-          - unless user_is_connected_to_service? 'twitter'
-            li.twitter
-              a[href='/auth/twitter' title='Conectar com Twitter'] Conectar com Twitter
-          - unless user_is_connected_to_service? 'foursquare'
-            li.foursquare
-              a[href='/auth/foursquare' title='Conectar com Foursquare'] Conectar com Foursquare
+          / - unless user_is_connected_to_service? 'twitter'
+          /   li.twitter
+          /     a[href='/auth/twitter' title='Conectar com Twitter'] Conectar com Twitter
+          / - unless user_is_connected_to_service? 'foursquare'
+          /   li.foursquare
+          /     a[href='/auth/foursquare' title='Conectar com Foursquare'] Conectar com Foursquare
         - if current_user['services'].size < 3
           .sep
         h3
