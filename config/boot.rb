@@ -21,5 +21,6 @@ require "active_support/core_ext"
 require "rack/mobile-detect"
 require 'digest/md5'
 require 'omniauth'
+require 'omniauth-facebook'
 require 'newrelic_rpm'
 require "#{File.dirname(__FILE__)}/custom_requires"

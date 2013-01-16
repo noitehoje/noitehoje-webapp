@@ -19,11 +19,13 @@ gem 'compass-h5bp'
 gem 'rack-mobile-detect'
 gem 'addressable'
 gem 'oauth'
-gem 'oauth2', '0.5.0'#, :path => "~/Data/Projects/oauth2"
-gem 'omniauth', :git => "git://github.com/felipecsl/omniauth.git"# :path => "~/Data/Projects/omniauth"
+gem 'oauth2'
+gem 'omniauth'
+gem 'omniauth-facebook'
 gem 'libv8', '~> 3.11.8'
 gem 'therubyracer'
 gem 'active_support'
+gem 'rest-client'
 
 group :development, :test do
   gem 'rspec'

@@ -9,6 +9,7 @@ module NoiteHoje
         provider: 'facebook',
         uid: user_hash[:uid],
         access_token: user_hash[:token],
+        secret: user_hash[:secret],
         image: user_hash[:image])
 
       if new_user['error'].present?
@@ -28,24 +29,25 @@ module NoiteHoje
       @authhash = Hash.new
 
       if service == 'facebook'
-        set_authhash_value :email,    omniauth['extra']['user_hash']['email']
-        set_authhash_value :name,     omniauth['extra']['user_hash']['name']
-        set_authhash_value :uid,      omniauth['extra']['user_hash']['id']
-        set_authhash_value :image,    omniauth['extra']['user_hash']['image']
+        set_authhash_value :email,    omniauth['extra']['raw_info']['email']
+        set_authhash_value :name,     omniauth['extra']['raw_info']['name']
+        set_authhash_value :uid,      omniauth['extra']['raw_info']['id']
+        set_authhash_value :image,    omniauth['extra']['raw_info']['image']
         set_authhash_value :provider, omniauth['provider']
         set_authhash_value :token,    omniauth['credentials']['token']
+        set_authhash_value :secret,   omniauth['credentials']['secret']
       elsif service == 'foursquare'
-        set_authhash_value :email,    omniauth['extra']['user_hash']['contact']['email']
-        set_authhash_value :name,     omniauth['user_info']['name']
-        set_authhash_value :uid,      omniauth['extra']['user_hash']['id']
-        set_authhash_value :phone,    omniauth['extra']['user_hash']['phone']
+        set_authhash_value :email,    omniauth['extra']['raw_info']['contact']['email']
+        set_authhash_value :name,     omniauth['info']['name']
+        set_authhash_value :uid,      omniauth['extra']['raw_info']['id']
+        set_authhash_value :phone,    omniauth['extra']['raw_info']['phone']
         set_authhash_value :provider, omniauth['provider']
         # Skittles.configure do |config|
         #   config.access_token =       omniauth['credentials']['token'] if ENV["RACK_ENV"] != "test"
         # end
       elsif service == 'twitter'
-        set_authhash_value :email,    omniauth['user_info']['email']
-        set_authhash_value :name,     omniauth['user_info']['name']
+        set_authhash_value :email,    omniauth['info']['email']
+        set_authhash_value :name,     omniauth['info']['name']
         set_authhash_value :uid,      omniauth['uid']
         set_authhash_value :provider, omniauth['provider']
         # Twitter.configure do |config|

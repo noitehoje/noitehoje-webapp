@@ -12,9 +12,9 @@ module NoiteHoje
       :httponly     => true,                        # a measure against XSS attacks, prevent client side scripts from accessing the cookie
       :secret      => COOKIE_SECRET
 
-    use OmniAuth::Strategies::Facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET
-    use OmniAuth::Strategies::Twitter, TWITTER_CONSUMER_KEY, TWITTER_CONSUMER_SECRET
-    use OmniAuth::Strategies::Foursquare, FOURSQUARE_CLIENT_ID, FOURSQUARE_CLIENT_SECRET
+    use OmniAuth::Builder do
+      provider :facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, :scope => 'email,read_stream'
+    end
 
     use NoiteHoje::Resources
     use NoiteHoje::WebApp
