@@ -2,15 +2,13 @@
 module NoiteHoje
   module Users
     def create_new_account user_hash
-      p user_hash
-
       new_user = api_helper.new_user(
         first_name: user_hash[:name].split.first,
         last_name: user_hash[:name].split[1..-1].join(' '),
         email: user_hash[:email],
         provider: 'facebook',
         uid: user_hash[:uid],
-        token: user_hash[:token],
+        access_token: user_hash[:token],
         image: user_hash[:image])
 
       if new_user['error'].present?
