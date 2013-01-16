@@ -28,7 +28,9 @@ class ApiHelper
   end
 
   def user_details user_id
-    JSON.parse get_endpoint("user/#{user_id}")
+    user = JSON.parse get_endpoint("user/#{user_id}")
+    user['services'] = [{ 'provider' => 'facebook'}]
+    user
   end
 
   def add_service user_id, service
@@ -36,7 +38,7 @@ class ApiHelper
   end
 
   def user_by_service service_provider, user_id
-    JSON.parse get_endpoint("user/#{user_id}?provider=#{service_provider}")
+    JSON.parse get_endpoint("user?uid=#{user_id}&provider=#{service_provider}")
   end
 
   private

@@ -28,8 +28,8 @@ module Sinatra
 
       def current_user_avatar
         return "" unless current_user
-        fb = current_user['services'].detect{|s| s['provider'] == 'facebook'}
-        return "http://graph.facebook.com/#{fb['uid']}/picture" if fb
+        return "http://graph.facebook.com/#{current_user['uid']}/picture"
+
         twitter = current_user['services'].detect{|s| s['provider'] == 'twitter' }
         return "https://api.twitter.com/1/users/profile_image/#{twiter['uid']}" if twitter
       end
