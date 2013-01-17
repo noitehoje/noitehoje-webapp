@@ -13,7 +13,7 @@ module NoiteHoje
       :secret      => COOKIE_SECRET
 
     use OmniAuth::Builder do
-      provider :facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, :scope => 'email,read_stream', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt'} }
+      provider :facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, :scope => 'email,read_stream', :client_options => {:ssl => {:ca_file => '/usr/lib/ssl/certs/ca-certificates.crt', ca_path: "/etc/ssl/certs"} }
     end
 
     use NoiteHoje::Resources
