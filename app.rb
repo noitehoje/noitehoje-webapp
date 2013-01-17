@@ -13,7 +13,7 @@ module NoiteHoje
       :secret      => COOKIE_SECRET
 
     use OmniAuth::Builder do
-      provider :facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, :scope => 'email,read_stream', :provider_ignores_state => true
+      provider :facebook, FACEBOOK_APP_ID, FACEBOOK_APP_SECRET, :scope => 'email,read_stream'
     end
 
     use NoiteHoje::Resources

@@ -1,10 +1,3 @@
-GIT
-  remote: git://github.com/etagwerker/omniauth-facebook.git
-  revision: 5359677bfe165209ce2794cbf318abb52dc72433
-  specs:
-    omniauth-facebook (1.4.1)
-      omniauth-oauth2 (~> 1.1)
-
 GEM
   remote: http://rubygems.org/
   specs:
@@ -59,7 +52,9 @@ GEM
     omniauth (1.1.1)
       hashie (~> 1.2)
       rack
-    omniauth-oauth2 (1.1.1)
+    omniauth-facebook (1.4.0)
+      omniauth-oauth2 (~> 1.0.2)
+    omniauth-oauth2 (1.0.3)
       oauth2 (~> 0.8.0)
       omniauth (~> 1.0)
     polyglot (0.3.3)
@@ -138,7 +133,7 @@ DEPENDENCIES
   oauth
   oauth2
   omniauth
-  omniauth-facebook!
+  omniauth-facebook (= 1.4.0)
   pony
   rack
   rack-mobile-detect
