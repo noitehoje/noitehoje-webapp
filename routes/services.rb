@@ -85,7 +85,7 @@ module NoiteHoje
 
     # callback: failure
     get '/auth/failure' do
-      flash[:error] = 'There was an error at the remote authentication service. You have not been signed in.'
+      flash[:error] = 'Ocorreu um erro com o seu login. Por favor, tente novamente mais tarde.'
       redirect '/'
     end
   end
