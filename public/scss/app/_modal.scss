@@ -1,4 +1,4 @@
-#modal-window {
+#modal-window-about, #modal-window-donate {
   position:fixed;
   top:0;
   left:0;
@@ -7,7 +7,7 @@
   @include background-image(linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.85)));
   z-index:10;
   display:none;
-  .close-modal {
+  .close-modal-about, .close-modal-donate {
     @include border-radius(1em);
     position:absolute;
     background:#000;

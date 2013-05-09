@@ -56,6 +56,12 @@ module NoiteHoje
       slim :root
     end
 
+    get "/donate" do
+      no_mobile!
+      set_up_events nil, nil
+      slim :root
+    end
+
     get "/" do
       no_mobile!
       set_up_events nil, nil

@@ -507,12 +507,22 @@
     $('#about').click(function(e) {
       e.preventDefault();
       NOITEHOJE.webApp.location.updateLocationWithScope('about');
-      return $('#modal-window').fadeIn(500);
+      return $('#modal-window-about').fadeIn(500);
     });
-    $('.close-modal').click(function(e) {
+    $('#donate').click(function(e) {
+      e.preventDefault();
+      NOITEHOJE.webApp.location.updateLocationWithScope('donate');
+      return $('#modal-window-donate').fadeIn(500);
+    });
+    $('.close-modal-about').click(function(e) {
       e.preventDefault();
       NOITEHOJE.webApp.location.updateLocationWithScope('');
-      return $('#modal-window').fadeOut(200);
+      return $('#modal-window-about').fadeOut(200);
+    });
+    $('.close-modal-donate').click(function(e) {
+      e.preventDefault();
+      NOITEHOJE.webApp.location.updateLocationWithScope('');
+      return $('#modal-window-donate').fadeOut(200);
     });
     $('.view-type a').click(function(e) {
       var current_view;

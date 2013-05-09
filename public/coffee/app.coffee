@@ -38,13 +38,23 @@ $ () ->
   $('#about').click (e) ->
     e.preventDefault()
     NOITEHOJE.webApp.location.updateLocationWithScope 'about'
-    $('#modal-window').fadeIn 500
+    $('#modal-window-about').fadeIn 500
+
+  $('#donate').click (e) ->
+    e.preventDefault()
+    NOITEHOJE.webApp.location.updateLocationWithScope 'donate'
+    $('#modal-window-donate').fadeIn 500
 
   # CLOSE ABOUT
-  $('.close-modal').click (e) ->
+  $('.close-modal-about').click (e) ->
     e.preventDefault()
     NOITEHOJE.webApp.location.updateLocationWithScope ''
-    $('#modal-window').fadeOut 200
+    $('#modal-window-about').fadeOut 200
+
+  $('.close-modal-donate').click (e) ->
+    e.preventDefault()
+    NOITEHOJE.webApp.location.updateLocationWithScope ''
+    $('#modal-window-donate').fadeOut 200
 
   # VIEW-TYPE
   $('.view-type a').click (e) ->

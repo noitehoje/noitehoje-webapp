@@ -8,8 +8,12 @@ header#header
 footer#footer
   .wrapper
     == slim :footer
-#modal-window
+#modal-window-about
   .content
     == slim :about
-  a.close-modal[href='#'] × fechar
+  a.close-modal-about[href='#'] × fechar
+#modal-window-donate
+  .content
+    == slim :donate
+  a.close-modal-donate[href='#'] × fechar
 == slim :map

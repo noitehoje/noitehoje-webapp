@@ -49,6 +49,10 @@ html.no-js[lang='pt-br' xmlns='http://www.w3.org/1999/xhtml' xmlns:fb='http://ww
           $("#about").click();
         });
     javascript:
+      $(function() {
+        $("#donate").click();
+      });
+    javascript:
       NOITEHOJE.webApp.facebookAppId = "#{FACEBOOK_APP_ID}";
       NOITEHOJE.webApp.environment = "#{ENV['RACK_ENV']}"
       $(function() {

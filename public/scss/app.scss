@@ -95,6 +95,17 @@ a:hover {
       text-shadow:#000 1px 1px 0;
     }
   }
+  .donate-link {
+    position:absolute;
+    top:0;
+    left:260px;
+    cursor:pointer;
+    a {
+      color:#FFF;
+      font-weight:900;
+      text-shadow:#000 1px 1px 0;
+    }
+  }
   .app-share {
     position:absolute;
     top:8px;
